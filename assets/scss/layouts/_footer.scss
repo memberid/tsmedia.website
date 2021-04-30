@@ -1,0 +1,25 @@
+.footer {
+  @apply absolute bottom-0 flex items-center justify-between w-full px-4 text-white;
+
+  height: 7vh;
+
+  @screen sm {
+    @apply flex items-center justify-between;
+  }
+
+  &__socmed {
+    @apply flex items-center justify-center space-x-6 pb-2 px-4;
+
+    @screen sm {
+      @apply pb-0;
+    }
+
+    &-item {
+      @apply font-bold cursor-pointer text-xl lg:text-2xl;
+    }
+  }
+
+  &__copyrights {
+    @apply ml-4 text-center font-bold text-base;
+  }
+}
