@@ -16,11 +16,20 @@
         v-for="(item, idx) in menu"
         :key="idx"
         :active="active == item"
+        class="desktop"
       >
         <div class="nav__menu">
           {{ item }}
         </div>
       </vs-navbar-item>
+      <vs-button
+        class="mobile"
+        @click="activeSidebar = !activeSidebar"
+        flat
+        icon
+      >
+        <i class="bx bx-menu"></i>
+      </vs-button>
     </template>
   </vs-navbar>
 </template>

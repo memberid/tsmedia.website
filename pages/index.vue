@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section>
+    <section class="main__section">
       <div class="content">
         <div class="content__wrapper">
           <div class="content__brand">
@@ -36,6 +36,7 @@
           <vue-glide
             :gap="100"
             :dragThreshold="false"
+            :breakpoints="settingCarousel.breakpoints"
             type="carousel"
             @glide:swipe-move="handleControlCarousel"
           >
@@ -142,6 +143,16 @@ export default {
       },
     ],
     navCarousel: 0,
+    settingCarousel: {
+      breakpoints: {
+        640: {
+          perView: 1,
+        },
+        1024: {
+          perView: 3,
+        },
+      },
+    },
   }),
   computed: {
     backgroundPrograms() {

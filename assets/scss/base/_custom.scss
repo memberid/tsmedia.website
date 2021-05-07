@@ -2,7 +2,10 @@
   min-height: calc(100vh);
 
   &__glide {
-    width: 40%;
+    @apply w-full;
+    @screen lg {
+      width: 40%;
+    }
   }
 }
 
@@ -95,14 +98,16 @@ nav ul li {
   align-items: center;
 
   &__wrapper {
-    @apply space-y-8;
-    width: 60%;
-    padding-left: 300px;
-    padding-right: 100px;
+    @apply px-6 space-y-8;
+    @screen lg {
+      width: 60%;
+      padding-left: 300px;
+      padding-right: 100px;
+    }
   }
 
   &__brand {
-    @apply max-w-xl;
+    @apply max-w-xs lg:max-w-xl;
     overflow: hidden;
     height: 8rem;
     img {

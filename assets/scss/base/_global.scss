@@ -71,3 +71,17 @@ a {
   // grid-template-columns: 16vmax auto;
   // background-color: $color--primary;
 }
+
+.mobile {
+  display: block;
+  @screen lg {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+  @screen lg {
+    display: block;
+  }
+}
