@@ -1,0 +1,145 @@
+.glide {
+  &_cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+    cursor: default;
+  }
+
+  @screen sm {
+    width: 100%;
+    padding-left: 120px;
+    padding-top: 40px;
+  }
+
+  @screen md {
+    padding-left: 0;
+    padding-top: 0;
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 40px;
+  flex-shrink: 0;
+
+  height: 520px;
+  width: 100%;
+  padding: 1.5rem;
+
+  @screen sm {
+    height: 300px;
+    width: 200px;
+  }
+  @screen md {
+    height: 350px;
+    width: 260px;
+  }
+  @screen lg {
+    height: 420px;
+    width: 300px;
+  }
+}
+
+.slider-image {
+  height: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s;
+  @screen sm {
+    height: 300px;
+  }
+  @screen md {
+    height: 260px;
+  }
+}
+
+.glide__slide--active .slider-image {
+  height: 100%;
+}
+
+.slider-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide p {
+  color: white;
+  font-size: 14px;
+}
+
+.rating {
+  display: flex;
+  width: 60px;
+  padding: 8px 0;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+}
+
+.active {
+  opacity: 1;
+}
+
+.bookmark {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+}
+
+.controls {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  @screen sm {
+    width: 80px;
+    justify-content: space-between;
+  }
+  @screen lg {
+    margin: 0 1.25rem;
+  }
+}
+
+.controls div {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+
+.controls div:active {
+  transform: scale(0.6);
+}
+
+.controls i {
+  color: gray;
+  font-size: 12px;
+  cursor: pointer;
+}

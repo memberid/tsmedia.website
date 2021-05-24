@@ -1,0 +1,10 @@
+.nav {
+  @apply py-2;
+  &__brand {
+    @apply w-1/2 ml-2 py-2 lg:w-4/5;
+  }
+
+  &__menu {
+    @apply py-4 px-2;
+  }
+}
