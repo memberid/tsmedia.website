@@ -1,10 +1,10 @@
 <template>
   <vs-navbar
+    v-model="active"
     class="nav bg-transparent"
     text-white
     :color="'primary'"
     center-collapsed
-    v-model="active"
   >
     <template #left>
       <div class="nav__brand">
@@ -22,12 +22,7 @@
           {{ item }}
         </div>
       </vs-navbar-item>
-      <vs-button
-        class="mobile"
-        @click="activeSidebar = !activeSidebar"
-        flat
-        icon
-      >
+      <vs-button class="mobile" icon @click="activeSidebar = !activeSidebar">
         <i class="bx bx-menu"></i>
       </vs-button>
     </template>
@@ -36,7 +31,7 @@
 <script>
 export default {
   data: () => ({
-    menu: ['Our Talents', 'About Us', 'Our Work', 'Contact Us'],
+    menu: ['Our Talents', 'About Us', 'Shop', 'Experience', 'Contact Us'],
   }),
 }
 </script>

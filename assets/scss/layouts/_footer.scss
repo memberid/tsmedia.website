@@ -1,5 +1,5 @@
 .footer {
-  @apply absolute bottom-0 flex flex-col-reverse py-4 lg:py-0 lg:px-4 lg:flex-auto items-center justify-between w-full text-white;
+  @apply absolute bottom-0 flex flex-col-reverse sm:flex-row py-4 lg:py-0 lg:px-4 lg:flex-auto items-center justify-between w-full text-white;
 
   height: 7vh;
 

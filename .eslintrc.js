@@ -18,5 +18,13 @@ module.exports = {
   rules: {
     'no-console': 'off',
     semi: 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        htmlWhitespaceSensitivity: 'ignore',
+        semi: false,
+        singleQuote: true,
+      },
+    ],
   },
 }

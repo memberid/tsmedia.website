@@ -3,7 +3,7 @@
     <section class="main__section">
       <div class="content">
         <div class="content__wrapper">
-          <div class="content__brand">
+          <div class="content__brand desktop">
             <img
               v-gsap.fromTo="[
                 { opacity: 0, y: 200, ease: 'sine' },
@@ -23,19 +23,20 @@
               {{ programs[navCarousel].description }}
             </p>
           </div>
-          <vs-button
-            class="w-1/5 font-bold"
-            size="large"
-            :active="active == 0"
-            @click="active = 0"
-          >
-            Get in Touch
-          </vs-button>
+          <div class="content__button">
+            <vs-button
+              class="font-bold"
+              size="large"
+              :active="active == 0"
+              @click="active = 0"
+            >
+              Get in Touch
+            </vs-button>
+          </div>
         </div>
         <div class="main__glide">
           <vue-glide
-            :gap="100"
-            :dragThreshold="false"
+            :drag-threshold="false"
             :breakpoints="settingCarousel.breakpoints"
             type="carousel"
             @glide:swipe-move="handleControlCarousel"
@@ -50,19 +51,19 @@
             <template slot="control">
               <div data-glide-el="controls" class="controls">
                 <vs-button
+                  id="prev"
                   icon
                   color="#ffffff"
                   data-glide-dir="<"
-                  id="prev"
                   @click="handleControlCarousel('prev')"
                 >
                   <i class="bx bxs-chevron-left"></i>
                 </vs-button>
                 <vs-button
+                  id="next"
                   icon
                   color="#ffffff"
                   data-glide-dir=">"
-                  id="next"
                   @click="handleControlCarousel('next')"
                 >
                   <i class="bx bxs-chevron-right"></i>
@@ -73,10 +74,19 @@
         </div>
       </div>
       <div class="background">
-        <CarouselDistortion
-          :navigation="navCarousel"
-          :imageUrls="backgroundPrograms"
-        />
+        <div class="desktop h-full w-full">
+          <CarouselDistortion
+            :navigation="navCarousel"
+            :image-urls="backgroundPrograms"
+          />
+        </div>
+        <div class="mobile h-full w-full">
+          <img
+            class="object-cover"
+            :src="require('~/assets/img/bg-gradient.png')"
+            alt=""
+          />
+        </div>
       </div>
     </section>
   </div>
@@ -98,7 +108,7 @@ export default {
         coverImg: require(`~/assets/img/programs/TS-Talks_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg2.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'TS Talks is an Indonesian talk show host by Luna and Marianne featuring guests interviews and variety of fun segments with different public figures on every exciting episode.',
       },
       {
         title: 'Cipika Cipiki',
@@ -148,8 +158,20 @@ export default {
         640: {
           perView: 1,
         },
-        1024: {
+        768: {
           perView: 3,
+          focusAt: 1,
+          gap: 50,
+        },
+        1024: {
+          perView: 2,
+          focusAt: 0,
+          gap: 150,
+        },
+        1440: {
+          perView: 3,
+          focusAt: 0,
+          gap: 200,
         },
       },
     },
