@@ -7,19 +7,22 @@
     center-collapsed
   >
     <template #left>
-      <div class="nav__brand">
-        <img src="~/assets/img/logo-ts-media.svg" alt="" />
-      </div>
+      <vs-navbar-item to="/">
+        <div class="nav__brand">
+          <img src="~/assets/img/logo-ts-media.svg" alt="" />
+        </div>
+      </vs-navbar-item>
     </template>
     <template #right>
       <vs-navbar-item
         v-for="(item, idx) in menu"
         :key="idx"
         :active="active == item"
+        :to="item.to"
         class="desktop"
       >
         <div class="nav__menu">
-          {{ item }}
+          {{ item.title }}
         </div>
       </vs-navbar-item>
       <vs-button class="mobile" icon @click="activeSidebar = !activeSidebar">
@@ -31,7 +34,13 @@
 <script>
 export default {
   data: () => ({
-    menu: ['Our Talents', 'About Us', 'Shop', 'Experience', 'Contact Us'],
+    menu: [
+      { title: 'Our Talents', to: 'talent' },
+      { title: 'About Us', to: 'about' },
+      { title: 'Shop', to: 'shop' },
+      { title: 'Experience', to: 'experience' },
+      { title: 'Contact Us', to: 'contact' },
+    ],
   }),
 }
 </script>
