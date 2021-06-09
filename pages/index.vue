@@ -92,20 +92,14 @@
 </template>
 
 <script>
-import { Glide, GlideSlide } from 'vue-glide-js'
-
 export default {
-  components: {
-    [Glide.name]: Glide,
-    [GlideSlide.name]: GlideSlide,
-  },
   data: () => ({
     programs: [
       {
         title: 'TS Talks',
         logo: require(`~/assets/img/programs/logo-ts-talks.svg`),
         coverImg: require(`~/assets/img/programs/TS-Talks_cover.png`),
-        backgroundImg: require(`~/assets/img/img-bg2.png`),
+        backgroundImg: require(`~/assets/img/programs/TS-Talks_image.png`),
         description:
           'TS Talks is an Indonesian talk show host by Luna and Marianne featuring guests interviews and variety of fun segments with different public figures on every exciting episode.',
       },

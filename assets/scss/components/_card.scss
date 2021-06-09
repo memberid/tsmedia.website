@@ -1,5 +1,5 @@
 .card {
-  @apply max-w-screen-lg;
+  @apply sm:max-w-screen-sm lg:max-w-screen-lg;
 
   .vs-card {
     @apply max-w-full shadow-lg;

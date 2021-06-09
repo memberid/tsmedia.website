@@ -124,6 +124,9 @@ nav ul li {
 
   &__button {
     @apply pt-4 m-auto md:pt-0 lg:m-0 w-full;
+    .vs-button {
+      @apply m-0;
+    }
   }
 }
 
@@ -157,6 +160,27 @@ nav ul li {
       }
     }
 
+    .vs-card {
+      max-width: 17rem;
+      min-height: 500px;
+      @screen sm {
+        max-width: 100%;
+        min-height: 550px;
+      }
+      @screen lg {
+        min-height: 700px;
+      }
+
+      &__img {
+        height: 15rem;
+        @apply md:h-full;
+        img {
+          object-fit: cover;
+          object-position: top;
+        }
+      }
+    }
+
     // .glide {
     //   &__slides {
     //     @apply py-8;
@@ -164,10 +188,15 @@ nav ul li {
     // }
 
     .controls {
-      @apply absolute w-screen p-8 m-0;
+      @apply absolute w-screen p-2 sm:p-8 lg:p-16 m-0;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      justify-content: space-between;
+
+      i {
+        @apply text-white text-3xl md:text-7xl;
+      }
     }
   }
 }
@@ -180,9 +209,6 @@ nav ul li {
     width: 200px;
   }
   .text-wrapper {
-    width: 50%;
-  }
-  .glide {
     width: 50%;
   }
   .text {

@@ -5,6 +5,7 @@
 
   @screen sm {
     @apply flex items-center justify-between;
+    height: 6vh;
   }
 
   &__socmed {
@@ -20,6 +21,6 @@
   }
 
   &__copyrights {
-    @apply ml-4 text-center font-bold text-sm md:text-base;
+    @apply md:ml-4 text-center font-bold text-sm md:text-base;
   }
 }

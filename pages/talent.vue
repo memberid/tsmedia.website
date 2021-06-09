@@ -13,7 +13,9 @@
           <vue-glide-slide v-for="(item, i) in profiles" :key="i">
             <vs-card type="1" class="card m-4">
               <template #title>
-                <span class="text-2xl font-semibold">{{ item.name }}</span>
+                <span class="text-xl lg:text-2xl font-semibold">
+                  {{ item.name }}
+                </span>
               </template>
               <template #img>
                 <img class="w-full h-full" :src="item.image" alt="" />
@@ -27,24 +29,12 @@
           </vue-glide-slide>
           <template slot="control">
             <div data-glide-el="controls" class="controls">
-              <vs-button
-                id="prevTalent"
-                icon
-                shadow
-                data-glide-dir="<"
-                @click="handleControlCarousel('prev')"
-              >
+              <div data-glide-dir="<" @click="handleControlCarousel('prev')">
                 <i class="bx bxs-chevron-left"></i>
-              </vs-button>
-              <vs-button
-                id="nextTalent"
-                icon
-                shadow
-                data-glide-dir=">"
-                @click="handleControlCarousel('next')"
-              >
+              </div>
+              <div data-glide-dir=">" @click="handleControlCarousel('next')">
                 <i class="bx bxs-chevron-right"></i>
-              </vs-button>
+              </div>
             </div>
           </template>
         </vue-glide>
@@ -118,19 +108,18 @@ Marianne’s an avid traveler and have built her career as a marketing professio
     navCarousel: 0,
     settingCarousel: {
       breakpoints: {
-        // 640: {
-        //   perView: 1,
-        // },
-        // 768: {
-        //   perView: 3,
-        //   focusAt: 1,
-        //   gap: 50,
-        // },
-        // 1024: {
-        //   perView: 2,
-        //   focusAt: 0,
-        //   gap: 150,
-        // },
+        640: {
+          perView: 1,
+        },
+        768: {
+          perView: 2,
+          gap: 50,
+        },
+        1024: {
+          perView: 2,
+          focusAt: 0,
+          gap: 150,
+        },
         1440: {
           perView: 3,
           focusAt: 0,
