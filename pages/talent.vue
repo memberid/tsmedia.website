@@ -110,6 +110,7 @@ Marianne’s an avid traveler and have built her career as a marketing professio
       breakpoints: {
         640: {
           perView: 1,
+          gap: 0,
         },
         768: {
           perView: 2,
@@ -123,7 +124,7 @@ Marianne’s an avid traveler and have built her career as a marketing professio
         1440: {
           perView: 3,
           focusAt: 0,
-          gap: 1000,
+          gap: 10,
         },
       },
     },
