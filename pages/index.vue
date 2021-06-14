@@ -26,6 +26,7 @@
           <vs-button
             class="font-bold"
             size="large"
+            :to="'/program/' + programs[navCarousel].to"
             :active="active == 0"
             @click="active = 0"
           >
@@ -97,6 +98,7 @@ export default {
     programs: [
       {
         title: 'TS Talks',
+        to: 'ts-talks',
         logo: require(`~/assets/img/programs/logo-ts-talks.svg`),
         coverImg: require(`~/assets/img/programs/TS-Talks_cover.png`),
         backgroundImg: require(`~/assets/img/programs/TS-Talks_image.png`),
@@ -105,6 +107,7 @@ export default {
       },
       {
         title: 'Cipika Cipiki',
+        to: 'cipika-cipiki',
         logo: require(`~/assets/img/programs/logo-cipika-cipiki.svg`),
         coverImg: require(`~/assets/img/programs/Cipika-Cipiki_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg.png`),
@@ -113,6 +116,7 @@ export default {
       },
       {
         title: 'Dates with JuNa',
+        to: 'dates-with-juna',
         logo: require(`~/assets/img/programs/logo-ju-na.svg`),
         coverImg: require(`~/assets/img/programs/Dates-with-JuNa_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg2.png`),
@@ -121,6 +125,7 @@ export default {
       },
       {
         title: 'HOKI',
+        to: 'hoki',
         logo: require(`~/assets/img/programs/logo-hoki.svg`),
         coverImg: require(`~/assets/img/programs/HOKI_cover.png`),
         backgroundImg: require(`~/assets/img/programs/HOKI_image.png`),
@@ -129,6 +134,7 @@ export default {
       },
       {
         title: 'Signature',
+        to: 'signature',
         logo: require(`~/assets/img/programs/logo-signature.svg`),
         coverImg: require(`~/assets/img/programs/Signature_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Signature_image.png`),
@@ -138,6 +144,7 @@ export default {
 
       {
         title: 'Tanngal Merah',
+        to: 'tanggal-merah',
         logo: require(`~/assets/img/programs/logo-tanggal-merah.svg`),
         coverImg: require(`~/assets/img/programs/Tanggal-Merah_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Tanggal-Merah_image.png`),

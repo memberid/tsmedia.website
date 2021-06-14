@@ -35,11 +35,11 @@
 export default {
   data: () => ({
     menu: [
-      { title: 'Our Talents', to: 'talent' },
-      { title: 'About Us', to: 'about' },
-      { title: 'Shop', to: 'shop' },
-      { title: 'Experience', to: 'experience' },
-      { title: 'Contact Us', to: 'contact' },
+      { title: 'Our Talents', to: '/talents' },
+      { title: 'About Us', to: '/about' },
+      { title: 'Shop', to: '/shop' },
+      { title: 'Experience', to: '/experience' },
+      { title: 'Contact Us', to: '/contact' },
     ],
   }),
 }
