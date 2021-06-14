@@ -199,6 +199,52 @@ nav ul li {
       }
     }
   }
+
+  &__program {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .program {
+      @apply w-2/5 pl-24 space-y-5;
+      &__logo {
+        @apply w-full h-24;
+        img {
+          @apply h-full;
+        }
+      }
+
+      &__description {
+        @apply pr-10;
+        p {
+          @apply text-xl font-medium;
+        }
+      }
+
+      &__button {
+        @apply pt-3;
+        button {
+          margin: 0;
+        }
+      }
+
+      &__backdrop {
+        // @apply relative h-full w-full;
+        display: flex;
+        min-height: 100vh;
+
+        img {
+          // @apply absolute bottom-0 right-0;
+          margin: auto 0;
+          margin-bottom: 0;
+          height: calc(100vh - 15vh);
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1600px) {
