@@ -7,6 +7,18 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white rounded; /* color of the scroll thumb */
+}
+
 button {
   &:focus {
     outline: none !important;
