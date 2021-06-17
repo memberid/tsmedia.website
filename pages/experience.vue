@@ -1,7 +1,7 @@
 <template>
   <section class="main__section">
-    <div class="main__shop">
-      <div class="main__shop-wrapper">
+    <div class="main__experience">
+      <div class="main__experience-wrapper">
         <div class="banner-slider">
           <vue-glide
             :keyboard="false"
@@ -10,12 +10,15 @@
             type="slider"
             :autoplay="5000"
           >
-            <vue-glide-slide v-for="(item, idx) in banners" :key="idx">
+            <vue-glide-slide
+              v-for="(item, idx) in bannerExperiences"
+              :key="idx"
+            >
               <div class="banner">
                 <div class="banner__image">
                   <img
                     class="h-full w-full object-left object-cover"
-                    :src="item.bannerImg"
+                    :src="item.experienceImg"
                   />
                 </div>
               </div>
@@ -44,32 +47,33 @@
           </template> -->
           </vue-glide>
         </div>
-        <div class="shop">
-          <div class="shop__headline">
-            <span class="font-bold text-2xl text-white">Apparel</span>
+        <div class="experience">
+          <div class="experience__headline">
+            <span class="font-bold text-2xl text-white">
+              Travel Secrets Experience
+            </span>
           </div>
           <div class="card__list">
-            <vs-card v-for="(item, idx) in 12" :key="idx" class="card__item">
+            <vs-card
+              v-for="(item, idx) in cardExperiences"
+              :key="idx"
+              class="card__item"
+            >
               <template #title>
-                <span class="text-base font-bold">Travel Secret Men</span>
+                <span class="text-base font-bold">{{ item.title }}</span>
               </template>
               <template #img>
-                <img
-                  :src="require(`~/assets/img/merc/product-display.png`)"
-                  alt=""
-                />
+                <img :src="item.experienceImg" />
               </template>
               <template #text>
                 <p>
-                  Size: S, M, L, XL
-                  <br />
-                  Price: IDR 250,000
+                  {{ item.description }}
                 </p>
               </template>
               <template #buttons>
-                <div class="flex w-1/3 ml-auto pb-2 px-2">
+                <div class="flex w-1/2 ml-auto pb-2 px-2">
                   <vs-button block color="dark">
-                    <span class="span">Order</span>
+                    <span class="span">More Info</span>
                   </vs-button>
                 </div>
               </template>
@@ -92,26 +96,40 @@
 <script>
 export default {
   data: () => ({
-    banners: [
+    bannerExperiences: [
       {
-        title: 'banner 1',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
+        title: 'Tanah Lot TS Experience',
+        experienceImg: require('~/assets/img/experience/experience-banner.png'),
       },
       {
-        title: 'banner 2',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
+        title: 'Tanah Lot TS Experience',
+        experienceImg: require('~/assets/img/experience/experience-banner.png'),
       },
       {
-        title: 'banner 3',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
+        title: 'Tanah Lot TS Experience',
+        experienceImg: require('~/assets/img/experience/experience-banner.png'),
+      },
+    ],
+    cardExperiences: [
+      {
+        title: 'Tanah Lot TS Experience',
+        description: `Price: IDR 500,000`,
+        experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
       },
       {
-        title: 'banner 4',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
+        title: 'Explore Malang in 1 Day',
+        description: `Price: IDR 300,000`,
+        experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
       },
       {
-        title: 'banner 5',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
+        title: 'Tanah Lot TS Experience',
+        description: `Price: IDR 500,000`,
+        experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
+      },
+      {
+        title: 'Explore Malang in 1 Day',
+        description: `Price: IDR 300,000`,
+        experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
       },
     ],
   }),

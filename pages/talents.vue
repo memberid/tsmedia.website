@@ -11,7 +11,7 @@
           @glide:swipe-move="handleControlCarousel"
         >
           <vue-glide-slide v-for="(item, i) in profiles" :key="i">
-            <vs-card type="1" class="card m-4">
+            <vs-card type="1" class="card__overview m-4">
               <template #title>
                 <span class="text-xl lg:text-2xl font-semibold">
                   {{ item.name }}

@@ -1,13 +1,32 @@
 .card {
-  @apply sm:max-w-screen-sm lg:max-w-screen-lg;
+  &__overview {
+    @apply sm:max-w-screen-sm lg:max-w-screen-lg;
+    .vs-card {
+      @apply max-w-full shadow-lg;
+      background: rgb(255 255 255 / 70%);
+      min-height: 700px;
 
-  .vs-card {
-    @apply max-w-full shadow-lg;
-    background: rgb(255 255 255 / 70%);
-    min-height: 700px;
+      &__img {
+        @apply p-4 max-h-full;
+      }
+    }
+  }
 
-    &__img {
-      @apply p-4 max-h-full;
+  &__list {
+    @apply grid grid-cols-4 gap-8;
+  }
+  &__item {
+    .vs-card {
+      background: rgba(255, 255, 255, 0.5);
+      &__img {
+        padding: 1rem;
+        max-height: 100%;
+      }
+      &__text {
+        padding-bottom: 0;
+      }
+      &__button {
+      }
     }
   }
 }
