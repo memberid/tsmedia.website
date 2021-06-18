@@ -219,7 +219,7 @@ nav ul li {
       }
 
       &__description {
-        @apply pr-10;
+        @apply pr-10 text-white;
         p {
           @apply text-xl font-medium;
         }
@@ -285,6 +285,32 @@ nav ul li {
 
         &__item {
           @apply space-y-3;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    @apply h-screen w-screen max-w-screen-xl m-auto flex justify-center items-center;
+
+    &-wrapper {
+      @apply h-full w-full flex justify-center items-center;
+    }
+
+    .contact {
+      @apply w-3/5 gap-28 flex justify-center items-baseline text-white;
+
+      &__info {
+        @apply w-2/5 space-y-8;
+
+        &-list {
+          @apply space-y-4;
+        }
+      }
+      &__form {
+        @apply w-2/5 space-y-8;
+        .vs-input {
+          @apply w-full;
         }
       }
     }

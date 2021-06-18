@@ -53,6 +53,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
     'nuxt-gsap-module',
+    '@braid/vue-formulate/nuxt',
   ],
 
   pageTransition: {
