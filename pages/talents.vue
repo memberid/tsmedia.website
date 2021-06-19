@@ -120,7 +120,7 @@ Marianne’s an avid traveler and have built her career as a marketing professio
           focusAt: 0,
           gap: 150,
         },
-        1440: {
+        1400: {
           perView: 3,
           focusAt: 0,
           gap: 1000,
