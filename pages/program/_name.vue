@@ -37,7 +37,7 @@ export default {
         title: 'TS Talks',
         to: 'ts-talks',
         logo: require(`~/assets/img/programs/logo-ts-talks.svg`),
-        backdropImg: require(`~/assets/img/programs/ts-talks_backdrop.png`),
+        backdropImg: require(`~/assets/img/programs/TS-Talks_backdrop.png`),
         description:
           'Host by Luna and Marianne, TS Talks shares inspiring stories and guest interviews with different public figures across a variety of industry.',
       },
@@ -61,7 +61,7 @@ export default {
         title: 'HOKI',
         to: 'hoki',
         logo: require(`~/assets/img/programs/logo-hoki.svg`),
-        backdropImg: require(`~/assets/img/programs/hoki_backdrop.png`),
+        backdropImg: require(`~/assets/img/programs/HOKI_backdrop.png`),
         description:
           'HOKI with Dimas Beck takes the audience into the world of unique hobbies around Indonesia that will blow your mind.',
       },
@@ -78,7 +78,7 @@ export default {
         title: 'Tanngal Merah',
         to: 'tanggal-merah',
         logo: require(`~/assets/img/programs/logo-tanggal-merah.svg`),
-        backdropImg: require(`~/assets/img/programs/tanggal-merah_backdrop.png`),
+        backdropImg: require(`~/assets/img/programs/Tanggal-Merah_backdrop.png`),
         description:
           'Where should you go when you have a day off or need a quick getaway? Traveling can be for everyone and it doesn’t have to be expensive. Jerome and Carissa will take you to places you can afford and adventures you’d want to experience yourself.',
       },
