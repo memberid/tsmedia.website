@@ -1,11 +1,11 @@
 .nav {
   // @apply py-2;
   &__brand {
-    @apply opacity-100 w-1/2 lg:ml-2 py-2 lg:w-4/5;
+    @apply opacity-100 w-1/2 md:w-3/4 lg:ml-2 py-2 lg:w-4/5;
   }
 
   &__menu {
-    @apply py-4 px-2;
+    @apply lg:py-4 px-2 w-max lg:text-base;
 
     &-humburger {
       .vs-button__content {
