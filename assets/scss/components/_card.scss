@@ -3,11 +3,11 @@
     @apply sm:max-w-screen-sm lg:max-w-screen-lg;
     .vs-card {
       @apply max-w-full shadow-lg;
-      background: rgb(255 255 255 / 70%);
+      background: transparent;
       min-height: 700px;
 
       &__img {
-        @apply p-4 max-h-full;
+        @apply max-h-full;
       }
     }
   }

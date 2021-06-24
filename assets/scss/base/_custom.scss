@@ -153,31 +153,85 @@ nav ul li {
   }
 
   &__talent {
-    @apply flex items-center justify-center w-screen h-screen overflow-hidden;
+    @apply flex items-center justify-center w-screen overflow-hidden;
+    height: 96vh;
+    @screen sm {
+      height: 100vh;
+    }
 
     .main {
       &__glide {
-        @apply w-4/5 mx-40;
+        @apply w-screen 2xl:max-w-screen-2xl mx-40 2xl:mx-auto;
+        .glide {
+          @apply md:w-4/5 xl:w-5/6 2xl:w-full m-auto;
+        }
       }
     }
 
     .vs-card {
-      min-height: 500px;
-      @screen sm {
-        max-width: 17rem;
-        min-height: 550px;
-      }
-      @screen lg {
-        max-width: 100%;
-        min-height: 600px;
-      }
+      min-height: auto;
+      padding-bottom: 0.5rem;
 
       &__img {
-        height: 15rem;
-        @apply md:h-full;
+        height: 28rem;
+        width: 15rem;
+        // @apply md:h-full;
+        @screen md {
+          width: 16rem;
+        }
+        @screen lg {
+          height: 35rem;
+          width: 20rem;
+        }
+        @screen xl {
+          height: 29rem;
+          width: 19rem;
+        }
+        @screen 2xl {
+          height: 34rem;
+          width: 24rem;
+        }
         img {
           object-fit: cover;
           object-position: top;
+        }
+      }
+
+      &__interactions {
+        @apply px-6 py-4 md:p-8;
+      }
+
+      &__text {
+        @apply lg:text-base;
+        min-height: 11rem;
+        position: absolute !important;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80% !important;
+        @screen md {
+          width: 100% !important;
+        }
+        // @screen lg {
+        //   // position: relative !important;
+        //   width: 90% !important;
+        //   // min-height: auto;
+        //   // margin-top: -100px !important;
+        // }
+      }
+
+      &:hover {
+        .vs-card {
+          &__text {
+            // transform: translate(0, -75%) !important;
+          }
+          &__interactions {
+            bottom: 200px !important;
+            @screen md {
+              bottom: 170px !important;
+            }
+          }
         }
       }
     }
@@ -189,11 +243,14 @@ nav ul li {
     // }
 
     .controls {
-      @apply absolute w-screen p-2 sm:p-8 lg:p-16 m-0;
+      @apply absolute w-screen p-2 sm:p-8 xl:p-16 m-0;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       justify-content: space-between;
+      // @screen lg {
+      //   top: 45%;
+      // }
 
       i {
         @apply text-white text-3xl md:text-7xl;

@@ -11,19 +11,26 @@
           @glide:swipe-move="handleControlCarousel"
         >
           <vue-glide-slide v-for="(item, i) in profiles" :key="i">
-            <vs-card type="1" class="card__overview m-4">
+            <vs-card type="5" class="card__overview m-4">
               <template #title>
-                <span class="text-xl lg:text-2xl font-semibold">
+                <!-- <span class="text-xl lg:text-2xl font-semibold">
                   {{ item.name }}
-                </span>
+                </span> -->
               </template>
               <template #img>
                 <img class="w-full h-full" :src="item.image" alt="" />
               </template>
               <template #text>
-                <p class="text-md">
+                <p class="tracking-tighter xl:tracking-tight font-medium">
                   {{ item.description }}
                 </p>
+              </template>
+              <template #interactions>
+                <span
+                  class="tracking-wider text-white text-3xl 2xl:text-4xl font-semibold"
+                >
+                  {{ item.name }}
+                </span>
               </template>
             </vs-card>
           </vue-glide-slide>
@@ -118,12 +125,12 @@ Marianne’s an avid traveler and have built her career as a marketing professio
         1024: {
           perView: 2,
           focusAt: 0,
-          gap: 150,
+          gap: 50,
         },
         1400: {
           perView: 3,
           focusAt: 0,
-          gap: 1000,
+          gap: 800,
         },
       },
     },
