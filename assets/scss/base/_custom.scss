@@ -164,6 +164,10 @@ nav ul li {
         @apply w-screen 2xl:max-w-screen-2xl mx-40 2xl:mx-auto;
         .glide {
           @apply md:w-4/5 xl:w-5/6 2xl:w-full m-auto;
+          &__track {
+            position: relative;
+            z-index: 10;
+          }
         }
       }
     }
