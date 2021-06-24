@@ -84,7 +84,7 @@
       <div class="mobile h-full w-full">
         <img
           class="object-cover"
-          :src="require('~/assets/img/bg-gradient.png')"
+          :src="require('~/assets/img/bg-gradient2.png')"
           alt=""
         />
       </div>
