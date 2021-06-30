@@ -1,21 +1,32 @@
 <template>
   <section class="main__section">
     <div class="main__program">
-      <div class="program">
-        <div class="program__logo">
-          <img :src="selectProgram.logo" alt="" />
+      <div class="main__program-wrapper">
+        <div class="program">
+          <div class="program__logo">
+            <img :src="selectProgram.logo" alt="" />
+          </div>
+          <div class="program__description">
+            <p>
+              {{ selectProgram.description }}
+            </p>
+          </div>
+          <div class="program__button">
+            <vs-button class="font-bold">Watch on Youtube</vs-button>
+          </div>
         </div>
-        <div class="program__description">
-          <p>
-            {{ selectProgram.description }}
-          </p>
+        <div class="program__backdrop">
+          <div class="program__logo">
+            <img :src="selectProgram.logo" alt="" />
+          </div>
+          <div class="program__backdrop-image">
+            <img
+              class="object-contain xl:object-cover"
+              :src="selectProgram.backdropImg"
+              alt=""
+            />
+          </div>
         </div>
-        <div class="program__button">
-          <vs-button class="font-bold" size="large">Watch on Youtube</vs-button>
-        </div>
-      </div>
-      <div class="program__backdrop">
-        <img class="object-cover" :src="selectProgram.backdropImg" alt="" />
       </div>
     </div>
     <div class="background">

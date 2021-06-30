@@ -18,7 +18,7 @@
           :key="idx"
           :active="active == item"
           :to="item.to"
-          class="desktop"
+          class="tablet"
         >
           <div class="nav__menu">
             {{ item.title }}

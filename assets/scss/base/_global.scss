@@ -97,9 +97,16 @@ a {
   }
 }
 
-.desktop {
+.tablet {
   display: none;
   @screen sm {
+    display: block;
+  }
+}
+
+.desktop {
+  display: none;
+  @screen lg {
     display: block;
   }
 }
