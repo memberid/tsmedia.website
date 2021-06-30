@@ -5,7 +5,7 @@
         <div class="contact">
           <div class="contact__info">
             <div class="contact__headline">
-              <span class="text-5xl font-bold">
+              <span class="text-2xl lg:text-5xl font-bold">
                 Get in touch and let us know how we can help
               </span>
             </div>

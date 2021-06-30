@@ -394,24 +394,28 @@ nav ul li {
   }
 
   &__contact {
-    @apply h-screen w-screen max-w-screen-xl m-auto flex justify-center items-center;
+    @apply h-screen w-screen max-w-screen-xl m-auto mt-16 lg:m-auto flex justify-center items-center overflow-auto sm:overflow-hidden;
+    height: calc(100vh - 9rem);
+    @screen lg {
+      height: 100vh;
+    }
 
     &-wrapper {
       @apply h-full w-full flex justify-center items-center;
     }
 
     .contact {
-      @apply w-3/5 gap-28 flex justify-center items-baseline text-white;
+      @apply w-full xl:w-3/5 h-full lg:h-auto gap-28 sm:flex justify-center items-baseline flex-col sm:flex-row text-white mx-8 xl:m-auto;
 
       &__info {
-        @apply w-2/5 space-y-8;
+        @apply w-full xl:w-2/5 h-full flex justify-center items-baseline flex-col space-y-8;
 
         &-list {
           @apply space-y-4;
         }
       }
       &__form {
-        @apply w-2/5 space-y-8;
+        @apply w-full xl:w-2/5 h-full flex justify-center flex-col space-y-8;
         .vs-input {
           @apply w-full;
         }
