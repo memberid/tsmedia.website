@@ -67,7 +67,7 @@
                 </p>
               </template>
               <template #buttons>
-                <div class="flex w-1/3 ml-auto pb-2 px-2">
+                <div class="flex w-2/3 lg:w-1/3 ml-auto pb-2 px-2">
                   <vs-button block color="dark">
                     <span class="span">Order</span>
                   </vs-button>

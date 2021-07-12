@@ -17,7 +17,7 @@
               <div class="banner">
                 <div class="banner__image">
                   <img
-                    class="h-full w-full object-left object-cover"
+                    class="h-full w-full object-center lg:object-left object-cover"
                     :src="item.experienceImg"
                   />
                 </div>
@@ -71,7 +71,7 @@
                 </p>
               </template>
               <template #buttons>
-                <div class="flex w-1/2 ml-auto pb-2 px-2">
+                <div class="flex w-2/3 lg:w-1/3 ml-auto pb-2 px-2">
                   <vs-button block color="dark">
                     <span class="span">More Info</span>
                   </vs-button>

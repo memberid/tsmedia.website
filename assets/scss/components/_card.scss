@@ -13,17 +13,17 @@
   }
 
   &__list {
-    @apply grid grid-cols-4 gap-8;
+    @apply grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-8;
   }
   &__item {
     .vs-card {
       background: rgba(255, 255, 255, 0.5);
       &__img {
-        padding: 1rem;
+        @apply p-2 lg:p-4;
         max-height: 100%;
       }
       &__text {
-        padding-bottom: 0;
+        @apply lg:pb-0;
       }
       &__button {
       }
