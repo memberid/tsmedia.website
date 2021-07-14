@@ -30,7 +30,7 @@
             :active="active == 0"
             @click="active = 0"
           >
-            Get in Touch
+            Read More
           </vs-button>
         </div>
       </div>
@@ -97,6 +97,15 @@ export default {
   data: () => ({
     programs: [
       {
+        title: 'Travel Secrets',
+        to: 'travel-secrets',
+        logo: require(`~/assets/img/programs/logo-travel-secrets.svg`),
+        coverImg: require(`~/assets/img/programs/Travel-Secrets_cover.png`),
+        backgroundImg: require(`~/assets/img/programs/Travel-Secrets_image.png`),
+        description:
+          'A non-script webseries program hosted by Luna Maya and Marianne Rumantir. These two independent women are going to share their experience and inspirations to travelers from all over the world.',
+      },
+      {
         title: 'TS Talks',
         to: 'ts-talks',
         logo: require(`~/assets/img/programs/logo-ts-talks.svg`),
@@ -112,7 +121,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Cipika-Cipiki_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'Cipika-Cipiki is a program where Luna and Marianne will be comparing the same cuisine from two different restaurants.',
       },
       {
         title: 'Dates with JuNa',
@@ -121,7 +130,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Dates-with-JuNa_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg2.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'Dates with Ju-Na is a romantic dating talk show with Herjunot Ali and Luna Maya.',
       },
       {
         title: 'HOKI',
@@ -130,7 +139,7 @@ export default {
         coverImg: require(`~/assets/img/programs/HOKI_cover.png`),
         backgroundImg: require(`~/assets/img/programs/HOKI_image.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'In HOKI, Dimas Beck will explore the hobbies of famous people in Indonesia.',
       },
       {
         title: 'Signature',
@@ -139,7 +148,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Signature_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Signature_image.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'Hello, sports enthusiast! In this program, Sigi Wimala as our host for SIGnature will share her journey on exploring new sports.',
       },
 
       {
@@ -149,7 +158,16 @@ export default {
         coverImg: require(`~/assets/img/programs/Tanggal-Merah_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Tanggal-Merah_image.png`),
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+          'Budget traveling, why not? Tanggal Merah hosted by Jerome Kurnia and Carissa Perusset is a program where you can find many hidden gems in Indonesia at a low cost.',
+      },
+      {
+        title: 'Momma Patz',
+        to: 'momma-patz',
+        logo: require(`~/assets/img/programs/logo-momma-patz.svg`),
+        coverImg: require(`~/assets/img/programs/Momma-Patz_cover.png`),
+        backgroundImg: require(`~/assets/img/programs/Momma-Patz_image.png`),
+        description:
+          'It’s Momma Patz Time! A cooking show program hosted by the beautiful model, Patricia Panigoro',
       },
     ],
     navCarousel: 0,

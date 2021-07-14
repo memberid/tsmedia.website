@@ -307,7 +307,7 @@ nav ul li {
         @apply h-full w-full md:h-auto xl:h-full xl:w-screen gap-4 flex justify-center flex-col order-first md:order-last;
 
         @screen xl {
-          width: 180vw;
+          width: 120vw;
         }
 
         &-image {
