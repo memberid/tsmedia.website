@@ -72,7 +72,7 @@ export default {
       {
         name: 'Herjunot Ali',
         description:
-          'Nihil sapiente eligendi et dicta quam dignissimos est. Facere voluptate eligendi ipsum beatae nesciunt neque dolorem est sunt. Voluptate earum minus tempore quos voluptas nihil dolores cupiditate. Delectus consequatur officiis repellat nisi repellat id repellat aut.',
+          'Herjunot Ali is an actor, a model, and an entertainment host who began his career in 2004 as a finalist in MTV VJ Hunt. His fist acting career started in 2004 as he started in the movie Lovely Luna and many more in the following years. He had also been nominated several times in Indonesian film festivals.',
         image: require('~/assets/img/talents/Junot_profile.png'),
       },
       {
@@ -90,25 +90,24 @@ Marianne’s an avid traveler and have built her career as a marketing professio
       {
         name: 'Dimas Beck',
         description:
-          'Nihil sapiente eligendi et dicta quam dignissimos est. Facere voluptate eligendi ipsum beatae nesciunt neque dolorem est sunt. Voluptate earum minus tempore quos voluptas nihil dolores cupiditate. Delectus consequatur officiis repellat nisi repellat id repellat aut.',
+          'Dimas Beck started his career as an actor in 2005, starring in the movie Apa Artinya Cinta. He is also a model, an entertainment host, and a singer. He became a singer after joining the group Bukan Bintang Biasa (BBB). There are many movies, soap operas, and TV shows to his name. Until today, he is still active in the entertainment industry.',
         image: require('~/assets/img/talents/Dimas_profile.png'),
       },
       {
         name: 'Carissa Perusset',
         description:
-          'Nihil sapiente eligendi et dicta quam dignissimos est. Facere voluptate eligendi ipsum beatae nesciunt neque dolorem est sunt. Voluptate earum minus tempore quos voluptas nihil dolores cupiditate. Delectus consequatur officiis repellat nisi repellat id repellat aut.',
+          'Carissa, a model of 9 years, has published her first book of poetry, and acted in her first movie in 2018 and her second one in 2019. Currently, Carissa is in the plan to publish another book and to direct an indie film. She is also taking the role as a scriptwriter in several upcoming movies!',
         image: require('~/assets/img/talents/Carissa_profile.png'),
       },
       {
         name: 'Jerome Kurnia',
         description:
-          'Nihil sapiente eligendi et dicta quam dignissimos est. Facere voluptate eligendi ipsum beatae nesciunt neque dolorem est sunt. Voluptate earum minus tempore quos voluptas nihil dolores cupiditate. Delectus consequatur officiis repellat nisi repellat id repellat aut.',
+          'Jerome began his career as a radio announcer in one of Indonesian radio station. Later in 2019, he took an acting role in the movie Bumi Manusia that boosted up his name. Until today, Jerome is still active in the entertainment industry as an entertainment host, an actor, and a model. His name also made it to the nominations in Indonesian film festival in 2019 and 2020.',
         image: require('~/assets/img/talents/Jerome_profile.png'),
       },
       {
         name: 'Patricia Panigoro',
-        description:
-          'Nihil sapiente eligendi et dicta quam dignissimos est. Facere voluptate eligendi ipsum beatae nesciunt neque dolorem est sunt. Voluptate earum minus tempore quos voluptas nihil dolores cupiditate. Delectus consequatur officiis repellat nisi repellat id repellat aut.',
+        description: `Patricia has been actively modeling since she's 4 years old. Over the years, she developed an interest in the fashion industry and participated in modeling events in Singapore and Malaysia. She also won a contract to be signed up for full-time modeling job in Singapore. Aside from modeling, she also likes cooking and participates in cooking classes.`,
         image: require('~/assets/img/talents/Patricia_profile.png'),
       },
     ],
