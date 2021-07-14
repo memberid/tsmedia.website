@@ -70,8 +70,8 @@ export default {
     menu: [
       { title: 'Our Talents', to: '/talents' },
       { title: 'About Us', to: '/about' },
-      { title: 'Shop', to: '/shop' },
-      { title: 'Experience', to: '/experience' },
+      // { title: 'Shop', to: '/shop' },
+      // { title: 'Experience', to: '/experience' },
       { title: 'Contact Us', to: '/contact' },
     ],
     activeMenu: false,
