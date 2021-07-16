@@ -9,6 +9,22 @@
       &__img {
         @apply max-h-full;
       }
+
+      &__text {
+        p {
+          &::-webkit-scrollbar {
+            width: 6px; /* width of the entire scrollbar */
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent; /* color of the tracking area */
+          }
+
+          &::-webkit-scrollbar-thumb {
+            @apply bg-yellow-500 rounded; /* color of the scroll thumb */
+          }
+        }
+      }
     }
   }
 

@@ -21,7 +21,9 @@
                 <img class="w-full h-full" :src="item.image" alt="" />
               </template>
               <template #text>
-                <p class="tracking-tighter xl:tracking-tight font-medium">
+                <p
+                  class="tracking-tighter xl:tracking-tight font-medium p-4 max-h-44 overflow-auto"
+                >
                   {{ item.description }}
                 </p>
               </template>
