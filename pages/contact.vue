@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <section class="main__section">
     <div class="main__contact">
@@ -24,7 +25,12 @@
               </div>
             </div>
           </div>
-          <FormulateForm v-model="formValues" class="contact__form">
+          <FormulateForm
+            v-model="formValues"
+            class="contact__form"
+            name="tsmedia-contact-form"
+            @submit="handleSubmit()"
+          >
             <FormulateInput
               name="name"
               placeholder="Name"
@@ -34,7 +40,7 @@
             <FormulateInput
               name="phoneNumber"
               placeholder="Phone Number"
-              validation="required|number|max:120"
+              validation="required|number"
               class="form__input"
             />
             <FormulateInput
@@ -50,11 +56,12 @@
               validation="required"
               class="form__input"
             />
-            <FormulateInput type="submit" class="form__input">
-              <vs-button block color="dark">
-                <span class="span">Submit</span>
-              </vs-button>
-            </FormulateInput>
+            <FormulateInput
+              type="submit"
+              class="form__input bg-green-500 rounded py-1"
+              :disabled="isLoading"
+              :label="isLoading ? 'Loading' : 'Submit'"
+            ></FormulateInput>
           </FormulateForm>
         </div>
       </div>
@@ -73,9 +80,63 @@
 <script>
 export default {
   data: () => ({
-    value4: '',
-    validEmail: false,
+    formValues: {
+      name: '',
+      phoneNumber: '',
+      email: '',
+      message: '',
+    },
+    isLoading: false,
   }),
+  mounted() {
+    // this.doSubmitForm()
+  },
+  methods: {
+    async handleSubmit() {
+      try {
+        if (this.isLoading) return
+        this.isLoading = true
+        const scriptURL =
+          'https://script.google.com/macros/s/AKfycbzvjO5WdZFnITS95G_-zXduhaVpX4eUOyBhguVEoskcDuwebDhNl68SMYhmTmx4W3iF/exec'
+        const form = document.forms['tsmedia-contact-form']
+
+        await fetch(scriptURL, {
+          method: 'POST',
+          body: new FormData(form),
+        })
+          .then((response) =>
+            this.openNotification('top-center', 'success', response)
+          )
+          .catch((error) =>
+            this.openNotification('top-center', 'danger', error)
+          )
+      } catch (error) {
+        // Notification error
+        this.openNotification('top-center', 'danger')
+      } finally {
+        // this.getData();
+        this.isLoading = false
+      }
+    },
+    openNotification(position = null, color, text) {
+      console.log(text)
+      const noti = this.$vs.notification({
+        color,
+        position,
+        title:
+          text.status === 200
+            ? 'Your Form has been received'
+            : `Your Form can't be received`,
+        text:
+          text.status === 200
+            ? 'We received Your Form! Will get back to you shortly'
+            : 'Retry Later or contact via Email',
+      })
+
+      return noti
+    },
+  },
 }
 </script>
 <style></style>
+/* eslint-disable */

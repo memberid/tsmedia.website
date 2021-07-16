@@ -107,7 +107,7 @@ Marianne’s an avid traveler and have built her career as a marketing professio
       },
       {
         name: 'Patricia Panigoro',
-        description: `Patricia has been actively modeling since she's 4 years old. Over the years, she developed an interest in the fashion industry and participated in modeling events in Singapore and Malaysia. She also won a contract to be signed up for full-time modeling job in Singapore. Aside from modeling, she also likes cooking and participates in cooking classes.`,
+        description: `Patricia has been actively modeling since she's 4 years old. Over the years, she developed an interest in the fashion industry and participated in modeling events in Singapore, Malaysia, and Hongkong. She won Elite Model Look Singapore and got a contract for full-time modeling job in Singapore. Patricia is currently a full time housewife and a mother of 3 beautiful kids. In addition, she is also passionate about cooking and baking.`,
         image: require('~/assets/img/talents/Patricia_profile.png'),
       },
     ],
