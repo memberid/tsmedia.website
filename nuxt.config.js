@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tsmedia',
+    title: 'TS Media',
     htmlAttrs: {
       lang: 'en',
     },
@@ -53,6 +53,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
     'nuxt-gsap-module',
+    '@braid/vue-formulate/nuxt',
   ],
 
   pageTransition: {
@@ -91,7 +92,14 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    contact:
+      'https://script.google.com/macros/s/AKfycbzvjO5WdZFnITS95G_-zXduhaVpX4eUOyBhguVEoskcDuwebDhNl68SMYhmTmx4W3iF/exec',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

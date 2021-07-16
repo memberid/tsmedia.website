@@ -1,0 +1,48 @@
+.card {
+  &__overview {
+    @apply sm:max-w-screen-sm lg:max-w-screen-lg;
+    .vs-card {
+      @apply max-w-full shadow-lg;
+      background: transparent;
+      min-height: 700px;
+
+      &__img {
+        @apply max-h-full;
+      }
+
+      &__text {
+        p {
+          &::-webkit-scrollbar {
+            width: 6px; /* width of the entire scrollbar */
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent; /* color of the tracking area */
+          }
+
+          &::-webkit-scrollbar-thumb {
+            @apply bg-yellow-500 rounded; /* color of the scroll thumb */
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    @apply grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-8;
+  }
+  &__item {
+    .vs-card {
+      background: rgba(255, 255, 255, 0.5);
+      &__img {
+        @apply p-2 lg:p-4;
+        max-height: 100%;
+      }
+      &__text {
+        @apply lg:pb-0;
+      }
+      &__button {
+      }
+    }
+  }
+}

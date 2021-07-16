@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# tsmedia.website
+=======
 # tsmedia
 
 ## Build Setup
@@ -18,3 +21,4 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+>>>>>>> 762a7c4423f9b99a496172708b998cb93345947b

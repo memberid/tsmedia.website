@@ -16,6 +16,9 @@ import { Power3 as Quart } from 'gsap'
 import DistortionCarousel from '@kaave/vue-disortion-carousel'
 
 export default {
+  components: {
+    DistortionCarousel,
+  },
   props: {
     navigation: {
       type: Number,
@@ -25,9 +28,6 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
-  components: {
-    DistortionCarousel,
   },
   data() {
     return {

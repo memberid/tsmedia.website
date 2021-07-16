@@ -1,0 +1,31 @@
+.form {
+  &__input {
+    input,
+    textarea,
+    button {
+      @apply w-full rounded-lg text-base;
+      min-height: 2rem;
+    }
+
+    input,
+    textarea {
+      @apply p-3 text-black;
+    }
+
+    textarea {
+      min-height: 6rem;
+    }
+
+    .formulate {
+      &-input {
+        &-errors {
+          @apply text-red-500 text-sm font-medium px-2 pt-1;
+        }
+      }
+    }
+
+    .vs-button {
+      @apply m-0;
+    }
+  }
+}
