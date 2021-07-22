@@ -4,8 +4,8 @@
       <div class="main__glide">
         <vue-glide
           :keyboard="false"
-          :per-touch="false"
           :drag-threshold="false"
+          :per-touch="1"
           :breakpoints="settingCarousel.breakpoints"
           type="slider"
           @glide:swipe-move="handleControlCarousel"

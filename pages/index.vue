@@ -36,11 +36,12 @@
       </div>
       <div class="main__glide">
         <vue-glide
+          v-model="navCarousel"
+          :per-touch="1"
           :keyboard="false"
           :drag-threshold="false"
           :breakpoints="settingCarousel.breakpoints"
           type="carousel"
-          @glide:swipe-move="handleControlCarousel"
         >
           <vue-glide-slide v-for="(item, i) in programs" :key="i">
             <div class="slide one">
@@ -51,22 +52,10 @@
           </vue-glide-slide>
           <template slot="control">
             <div data-glide-el="controls" class="controls">
-              <vs-button
-                id="prev"
-                icon
-                color="#ffffff"
-                data-glide-dir="<"
-                @click="handleControlCarousel('prev')"
-              >
+              <vs-button id="prev" icon color="#ffffff" data-glide-dir="<">
                 <i class="bx bxs-chevron-left"></i>
               </vs-button>
-              <vs-button
-                id="next"
-                icon
-                color="#ffffff"
-                data-glide-dir=">"
-                @click="handleControlCarousel('next')"
-              >
+              <vs-button id="next" icon color="#ffffff" data-glide-dir=">">
                 <i class="bx bxs-chevron-right"></i>
               </vs-button>
             </div>
@@ -208,17 +197,6 @@ export default {
     },
   },
   mounted() {},
-  methods: {
-    handleControlCarousel(event) {
-      if (event === 'next') {
-        this.navCarousel = (this.navCarousel + 1) % this.programs.length
-      } else {
-        this.navCarousel = (this.navCarousel - 1) % this.programs.length
-        if (this.navCarousel < 0) {
-          this.navCarousel = this.programs.length - 1
-        }
-      }
-    },
-  },
+  methods: {},
 }
 </script>
