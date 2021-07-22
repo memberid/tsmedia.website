@@ -23,6 +23,20 @@
                 <span>Email</span>
                 <p class="font-semibold text-lg">info@ts-media.com</p>
               </div>
+              <div class="contact__info-item">
+                <span>Mobile Phone</span>
+                <div class="flex items-center gap-2">
+                  <p class="font-semibold text-lg">+62 812 9862 6560</p>
+                  <vs-button
+                    icon
+                    color="whatsapp"
+                    href="https://api.whatsapp.com/send?phone=62+812-9862-6560"
+                    blank
+                  >
+                    <i class="bx bxl-whatsapp"></i>
+                  </vs-button>
+                </div>
+              </div>
             </div>
           </div>
           <FormulateForm

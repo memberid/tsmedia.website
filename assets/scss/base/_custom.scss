@@ -70,15 +70,15 @@ nav ul li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100vh;
+  height: calc(100vh - 10rem);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
-
   @screen lg {
     flex-direction: inherit;
+    height: 100vh;
   }
 
   &__wrapper {
