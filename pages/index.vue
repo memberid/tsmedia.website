@@ -117,7 +117,7 @@ export default {
         to: 'dates-with-juna',
         logo: require(`~/assets/img/programs/logo-ju-na.svg`),
         coverImg: require(`~/assets/img/programs/Dates-with-JuNa_cover.png`),
-        backgroundImg: require(`~/assets/img/img-bg2.png`),
+        backgroundImg: require(`~/assets/img/programs/Dates-with-JuNa_image.png`),
         description:
           'Dates with Ju-Na is a romantic dating talk show with Herjunot Ali and Luna Maya.',
       },
