@@ -111,7 +111,7 @@ export default {
         if (this.isLoading) return
         this.isLoading = true
         const scriptURL =
-          'https://script.google.com/macros/s/AKfycbzvjO5WdZFnITS95G_-zXduhaVpX4eUOyBhguVEoskcDuwebDhNl68SMYhmTmx4W3iF/exec'
+          'https://script.google.com/macros/s/AKfycbxUj8oAh7FTZ2mAl7qJj_IUuzSTIcJB9C2BuUlnENghs7K6ugX8pTpaGkKsQ7ophm_jMg/exec'
         const form = document.forms['tsmedia-contact-form']
 
         await fetch(scriptURL, {
