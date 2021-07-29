@@ -92,7 +92,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Travel-Secrets_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Travel-Secrets_image.png`),
         description:
-          'A non-script webseries program hosted by Luna Maya and Marianne Rumantir. These two independent women are going to share their experience and inspirations to travelers from all over the world.',
+          'A non-scripted web-series program hosted by Luna Maya and Marianne Rumantir. These two  adventurous females shares their experiences and travel discoveries from all around the world.',
       },
       {
         title: 'TS Talks',
@@ -101,7 +101,7 @@ export default {
         coverImg: require(`~/assets/img/programs/TS-Talks_cover.png`),
         backgroundImg: require(`~/assets/img/programs/TS-Talks_image.png`),
         description:
-          'TS Talks is an Indonesian talk show host by Luna and Marianne featuring guests interviews and variety of fun segments with different public figures on every exciting episode.',
+          'TS Talks is an Indonesian talk show hosted by Luna and Marianne featuring guest interviews and a variety of fun segments with different public figures.',
       },
       {
         title: 'Cipika Cipiki',
@@ -110,7 +110,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Cipika-Cipiki_cover.png`),
         backgroundImg: require(`~/assets/img/img-bg.png`),
         description:
-          'Cipika-Cipiki is a program where Luna and Marianne will be comparing the same cuisine from two different restaurants.',
+          'Cicip Piring Kanan - Cicip Piring Kiri is a fun culinary program where our hosts discover different cuisines from different areas of Indonesia and the world featuring special guests on every episode.',
       },
       {
         title: 'Dates with JuNa',
@@ -119,7 +119,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Dates-with-JuNa_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Dates-with-JuNa_image.png`),
         description:
-          'Dates with Ju-Na is a romantic dating talk show with Herjunot Ali and Luna Maya.',
+          'Dates with a romantic dating talk-show that talks about relationships, current trends and culture with different hosts in every season.',
       },
       {
         title: 'HOKI',
@@ -128,7 +128,7 @@ export default {
         coverImg: require(`~/assets/img/programs/HOKI_cover.png`),
         backgroundImg: require(`~/assets/img/programs/HOKI_image.png`),
         description:
-          'In HOKI, Dimas Beck will explore the hobbies of famous people in Indonesia.',
+          'Hobi Orang Kece Indonesia with Dimas Beck explores the eccentricities of the unique hobbies of Indonesians.',
       },
       {
         title: 'Signature',
@@ -137,7 +137,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Signature_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Signature_image.png`),
         description:
-          'Hello, sports enthusiast! In this program, Sigi Wimala as our host for SIGnature will share her journey on exploring new sports.',
+          'Sigi Wimala takes the audience into the different world of sports and exciting adventures.',
       },
 
       {
@@ -147,7 +147,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Tanggal-Merah_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Tanggal-Merah_image.png`),
         description:
-          'Budget traveling, why not? Tanggal Merah hosted by Jerome Kurnia and Carissa Perusset is a program where you can find many hidden gems in Indonesia at a low cost.',
+          'Dedicated for travelers who are looking for short-trips and adventurous travel ideas, Tanggal Merah takes you to hidden gems of Indonesia (and the world) that are smart and easy on the pocket type of travels.',
       },
       {
         title: 'Momma Patz',
@@ -156,7 +156,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Momma-Patz_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Momma-Patz_image.png`),
         description:
-          'It’s Momma Patz Time! A cooking show program hosted by the beautiful model, Patricia Panigoro',
+          'In this baking show, our sexy next door momma, Patricia Panigoro, will share her secret recipes inspired from her travels around the world.',
       },
     ],
     navCarousel: 0,
