@@ -108,7 +108,7 @@ export default {
         to: 'cipika-cipiki',
         logo: require(`~/assets/img/programs/logo-cipika-cipiki.svg`),
         coverImg: require(`~/assets/img/programs/Cipika-Cipiki_cover.png`),
-        backgroundImg: require(`~/assets/img/img-bg.png`),
+        backgroundImg: require(`~/assets/img/programs/Cipika-Cipiki_image.png`),
         description:
           'Cicip Piring Kanan - Cicip Piring Kiri is a fun culinary program where our hosts discover different cuisines from different areas of Indonesia and the world featuring special guests on every episode.',
       },
