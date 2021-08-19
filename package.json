@@ -28,6 +28,9 @@
     "core-js": "^3.9.1",
     "gsap": "^3.6.1",
     "hover-effect": "^1.1.0",
+    "lingallery": "^1.3.7",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "nuxt": "^2.15.3",
     "three": "^0.127.0",
     "vue-glide-js": "^1.3.14",
@@ -48,12 +51,14 @@
     "eslint-plugin-vue": "^7.7.0",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
+    "numeral": "^2.0.6",
     "nuxt-gsap-module": "^1.3.1",
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "sass": "^1.32.8",
     "sass-loader": "10",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
+    "vue2-filters": "^0.13.0"
   }
 }

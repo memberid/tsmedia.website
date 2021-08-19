@@ -361,6 +361,117 @@ nav ul li {
     .experience {
       @apply pt-8 lg:pt-16 pb-24 space-y-10;
     }
+
+    .shop {
+      @apply pb-48;
+      &-wrapper {
+        @apply sm:flex gap-12;
+      }
+
+      &__headline {
+        @apply sm:flex justify-between items-center space-y-4 sm:space-y-0;
+
+        .vs-select-content {
+          @apply sm:w-52;
+        }
+      }
+
+      &__category {
+        @apply w-full sm:w-60 pb-12 sm:pb-4 font-bold text-xl text-white;
+
+        &-list {
+          @apply space-y-2;
+        }
+
+        &-item {
+          @apply text-white;
+        }
+      }
+
+      &__empty-state {
+        @apply w-full flex justify-center items-center;
+      }
+
+      &__navigation {
+        .button {
+          margin: 0 !important;
+        }
+      }
+
+      &__detail {
+        @apply sm:max-w-screen-lg xl:max-w-screen-xl text-white;
+        &-body {
+          @apply sm:flex justify-center items-center gap-20 space-y-8 sm:space-y-0 mb-16 sm:mb-0;
+        }
+
+        &-content {
+          @apply w-full sm:w-2/5;
+        }
+
+        &-images {
+          .lingallery {
+            img {
+              @apply w-full h-full object-cover rounded-lg;
+            }
+            &_thumbnails {
+              @apply pt-2;
+              &_content {
+                @apply flex gap-1;
+              }
+              img {
+                border: 0;
+                height: 64px;
+                width: 64px;
+                @screen sm {
+                  height: 80px;
+                  width: 80px;
+                }
+              }
+            }
+          }
+        }
+
+        &-headline {
+          @apply text-2xl sm:text-4xl font-bold sm:pb-2;
+        }
+
+        &-code {
+          @apply text-sm sm:text-lg;
+        }
+
+        &-price {
+          @apply text-2xl sm:text-3xl font-bold pt-4 pb-12;
+        }
+
+        &-variant {
+          @apply space-y-4 text-sm sm:text-base;
+        }
+
+        &-order {
+          @apply w-full sm:w-60 mt-10;
+          .button {
+            @apply h-10;
+          }
+        }
+      }
+
+      .card__list {
+        @apply grid-cols-2 sm:grid-cols-3;
+      }
+      .vs-card {
+        &__img {
+          img {
+            width: 345px;
+            height: 150px;
+            object-fit: cover;
+
+            @screen sm {
+              height: 300px;
+            }
+          }
+        }
+      }
+    }
   }
 
   &__about {

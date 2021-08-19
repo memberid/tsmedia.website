@@ -1,3 +1,5 @@
+import webpack from 'webpack'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -42,6 +44,8 @@ export default {
     '@/plugins/glide',
     { src: '@/plugins/hoverEffect', mode: 'client' },
     '@/plugins/fontawesome',
+    { src: '@/plugins/lingallery', mode: 'client' },
+    '@/plugins/utils/filters/common.filter',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -91,18 +95,19 @@ export default {
     '@nuxtjs/axios',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true,
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
+    },
   },
-
-  proxy: {
-    contact:
-      'https://script.google.com/macros/s/AKfycbzvjO5WdZFnITS95G_-zXduhaVpX4eUOyBhguVEoskcDuwebDhNl68SMYhmTmx4W3iF/exec',
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        // global modules
+        _: 'lodash',
+      }),
+    ],
     extend(config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
