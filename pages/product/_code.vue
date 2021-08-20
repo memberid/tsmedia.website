@@ -144,7 +144,7 @@ export default {
   async asyncData({ params, $axios }) {
     const slug = await params // When calling /abc the slug will be "abc"
     const products = await $axios.$get(
-      `/echo?user_content_key=FQu_21mEly0EEwr1DCe84zCZvc_HHQVXoFvnF9gM7hwLGT_6zkLPdS3GBnp5GpwGMyAihTQYrqd-Yf81coxJdKYJsVjwS38lm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
+      `/echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
     )
     return { slug, products }
   },

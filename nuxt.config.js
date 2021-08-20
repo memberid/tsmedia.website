@@ -94,12 +94,28 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+  axios: {
+    proxy: true, // Can be also an object with default options
+  },
 
   publicRuntimeConfig: {
     axios: {
       baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
     },
   },
+  default: {
+    common: {
+      Accept: 'application/json, text/plain, */*',
+      'Access-Control-Allow-Origin': '*',
+    },
+    delete: {},
+    get: {},
+    head: {},
+    post: {},
+    put: {},
+    patch: {},
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     plugins: [

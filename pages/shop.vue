@@ -141,9 +141,9 @@
                   <template #text>
                     <div class="card__item-content space-y-1.5">
                       <div class="gap-1 text-sm">
-                        Product Code:
+                        <!-- Product Code:
                         {{ items.GROUP_PRODUCT_CODE }}
-                        <br />
+                        <br /> -->
                         Color :
                         <div
                           v-for="(color, index) in items.customParams['color']"
@@ -171,13 +171,13 @@
                       </div>
                     </div>
                   </template>
-                  <template #interactions>
-                    <div v-if="items['ENDING_INVENTORY'] == '-'" class="m-4">
+                  <!-- <template #interactions>
+                    <div class="m-4">
                       <vs-button color="dark">
                         <span class="span">Out of Stock</span>
                       </vs-button>
                     </div>
-                  </template>
+                  </template> -->
                   <!-- <template #buttons>
                     <div class="flex w-2/3 lg:w-1/3 ml-auto pb-2 px-2">
                       <vs-button
@@ -211,8 +211,9 @@
 import _ from 'lodash'
 export default {
   async asyncData({ $axios, $config }) {
+    console.log($axios)
     const products = await $axios.$get(
-      `/echo?user_content_key=FQu_21mEly0EEwr1DCe84zCZvc_HHQVXoFvnF9gM7hwLGT_6zkLPdS3GBnp5GpwGMyAihTQYrqd-Yf81coxJdKYJsVjwS38lm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
+      `echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
     )
     return { products }
   },
@@ -235,10 +236,10 @@ export default {
         name: 'New Arrival',
       },
       {
-        name: 'Low to High',
+        name: 'Price : Low to High',
       },
       {
-        name: 'High to Low',
+        name: 'Price : High to Low',
       },
     ],
   }),
@@ -359,7 +360,7 @@ export default {
     handleFilterSort(value) {
       const loading = this.$vs.loading()
 
-      if (value === 'High to Low') {
+      if (value === 'Price : High to Low') {
         this.filterProducts = _.orderBy(
           this.groupProducts,
           ['SELLING_PRICE'],
@@ -369,7 +370,7 @@ export default {
           loading.close()
           return this.filterProducts
         }, 1000)
-      } else if (value === 'Low to High') {
+      } else if (value === 'Price : Low to High') {
         this.filterProducts = _.orderBy(
           this.groupProducts,
           ['SELLING_PRICE'],
