@@ -393,6 +393,7 @@ nav ul li {
       }
 
       &__navigation {
+        @apply mx-16;
         .button {
           margin: 0 !important;
         }
@@ -401,17 +402,21 @@ nav ul li {
       &__detail {
         @apply sm:max-w-screen-lg xl:max-w-screen-xl text-white;
         &-body {
-          @apply sm:flex justify-center items-center gap-20 space-y-8 sm:space-y-0 mb-16 sm:mb-0;
+          @apply sm:flex justify-between items-center gap-20 space-y-8 sm:space-y-0 mb-16 sm:mb-0 mx-0 sm:mx-20;
         }
 
         &-content {
-          @apply w-full sm:w-2/5;
+          @apply w-full sm:w-1/2;
         }
 
         &-images {
+          @apply sm:w-2/5 h-full;
           .lingallery {
             img {
               @apply w-full h-full object-cover rounded-lg;
+            }
+            figure {
+              height: 30rem !important;
             }
             &_thumbnails {
               @apply pt-2;

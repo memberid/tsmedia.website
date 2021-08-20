@@ -3,24 +3,24 @@
     <div class="main__shop">
       <div class="main__shop-wrapper">
         <div class="shop__detail">
+          <div class="shop__navigation mb-5">
+            <vs-button color="white" transparent :to="'/shop'">
+              <i class="bx bx-arrow-back text-xl"></i>
+              <span class="pl-2 span font-semibold text-lg">Back</span>
+            </vs-button>
+          </div>
           <div class="shop__detail-body">
             <div class="shop__detail-images">
-              <div class="shop__navigation mb-5">
-                <vs-button color="white" transparent :to="'/shop'">
-                  <i class="bx bx-arrow-back text-xl"></i>
-                  <span class="pl-2 span font-semibold text-lg">Back</span>
-                </vs-button>
-              </div>
               <lingallery
                 :iid.sync="currentId"
                 :width="500"
                 :height="500"
                 :mobile-height="300"
                 :mobile-height-breakpoint="400"
+                responsive
                 :show-controls="false"
                 :items="galleryItems"
               />
-              {{ currentId }}
             </div>
             <div class="shop__detail-content">
               <div class="shop__detail-content__head">
@@ -38,10 +38,15 @@
                 </div>
                 <div class="shop__detail-code">
                   Product Code :
-                  {{ selectedProduct['GROUP_PRODUCT_CODE'] }}
+                  <template v-if="activeCode">
+                    {{ activeCode }}
+                  </template>
+                  <template v-else>
+                    {{ selectedProduct['GROUP_PRODUCT_CODE'] }}
+                  </template>
                 </div>
                 <div class="shop__detail-price">
-                  Rp.{{
+                  Rp{{
                     selectedProduct['SELLING_PRICE_INCLUDE_PPN'] | formatNumber
                   }}
                 </div>
@@ -62,7 +67,7 @@
                           color="primary"
                           flat
                           :active="activeColor === color.name"
-                          @click="handleVariantSize(color.name)"
+                          @click="handleSelectColor(color.name)"
                         >
                           <span
                             v-for="(item, idx) in color.name"
@@ -88,7 +93,7 @@
                         flat
                         :active="activeSize === item"
                         class="font-semibold w-14"
-                        @click="activeSize = item"
+                        @click="handleSelectSize(item)"
                       >
                         <span>
                           {{ item }}
@@ -107,8 +112,9 @@
                     block
                     size="lg"
                     color="whatsapp"
-                    :href="'https://wa.me/6281298626560'"
                     blank
+                    :disabled="activeSize == ''"
+                    @click="doOrder"
                   >
                     <i class="bx bxl-whatsapp text-xl"></i>
                     <span class="span pl-1.5 text-base font-bold">Order</span>
@@ -151,12 +157,13 @@ export default {
     galleryItems: [],
     activeColor: '',
     activeSize: '',
+    activeCode: '',
     currentId: null,
   }),
   computed: {},
   async mounted() {
     await this.getDataProduct()
-    this.getSelectedDataProduct()
+    await this.getSelectedDataProduct()
   },
   methods: {
     getDataProduct() {
@@ -237,32 +244,55 @@ export default {
 
       const selectImages = _.map(dataList, (item) => {
         return {
-          src: item.URL_IMAGE,
+          src:
+            'https://drive.google.com/uc?export=view&id=' +
+            item.ID_IMAGE_GDRIVE,
           thumbnail: item.URL_IMAGE,
           id: item['NO.'],
         }
       })
 
       this.activeColor = this.selectedProduct.customParams.color[0].name
+
+      this.variantSize = _.filter(this.selectedProduct.customParams.color, [
+        'name',
+        this.activeColor,
+      ])[0]
+
+      this.variantSize.size = this.variantSize.size.sort().reverse()
       console.log(selectImages)
       this.galleryItems = selectImages
-      this.handleVariantSize(this.activeColor)
       this.isOpen = true
     },
-    handleVariantSize(name) {
+    handleSelectColor(name) {
       this.activeColor = name
       // const sizeList = _.filter(
       //   this.selectedProduct.customParams.similiarList,
       //   ['PRODUCT_COLOR', name]
       // )
-      this.variantSize = _.filter(this.selectedProduct.customParams.color, [
-        'name',
-        name,
-      ])[0]
 
-      this.variantSize.size = this.variantSize.size.sort().reverse()
+      if (this.activeSize !== '') {
+        this.handleSelectSize(this.activeSize)
+      }
+    },
+    handleSelectSize(name) {
+      this.activeSize = name
+      const selectData = _.find(
+        this.selectedProduct.customParams.similiarList,
+        { PRODUCT_COLOR: this.activeColor, PRODUCT_SIZE: this.activeSize }
+      )
 
-      console.log(this.galleryItems, this.currentId)
+      this.activeCode = selectData.PRODUCT_CODE
+    },
+    doOrder() {
+      let message = ''
+      message = `Halo, Saya tertarik untuk membeli,%0ANama Produk : ${this.selectedProduct.PRODUCT_DESIGN} - ${this.selectedProduct.PRODUCT_NAME},%0AKode Produk : ${this.activeCode},%0AWarna : ${this.activeColor},%0AUkuran : ${this.activeSize}`
+      message = message.split(' ').join('%20')
+
+      console.log(message)
+      const link =
+        'https://api.whatsapp.com/send?phone=6281298626560' + '&text=' + message
+      window.open(link)
     },
   },
 }

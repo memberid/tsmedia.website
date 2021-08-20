@@ -140,7 +140,7 @@
                   </template>
                   <template #text>
                     <div class="card__item-content space-y-1.5">
-                      <div class="gap-1 text-sm sm:text-base">
+                      <div class="gap-1 text-sm">
                         Product Code:
                         {{ items.GROUP_PRODUCT_CODE }}
                         <br />
@@ -148,7 +148,7 @@
                         <div
                           v-for="(color, index) in items.customParams['color']"
                           :key="index"
-                          class="contents"
+                          class="inline-flex"
                         >
                           <span v-for="(item, idx) in color.name" :key="idx">
                             {{ item }}
@@ -157,6 +157,7 @@
                             v-if="
                               index !== items.customParams['color'].length - 1
                             "
+                            class="pr-1"
                           >
                             ,
                           </span>
@@ -165,7 +166,7 @@
                       <div
                         class="text-base sm:text-xl font-bold pt-2 pb-2 sm:pb-6"
                       >
-                        Rp.
+                        Rp
                         {{ items['SELLING_PRICE_INCLUDE_PPN'] | formatNumber }}
                       </div>
                     </div>
@@ -219,10 +220,6 @@ export default {
     banners: [
       {
         title: 'banner 1',
-        bannerImg: require('~/assets/img/merc/merc-banner.png'),
-      },
-      {
-        title: 'banner 2',
         bannerImg: require('~/assets/img/merc/merc-banner.png'),
       },
     ],
