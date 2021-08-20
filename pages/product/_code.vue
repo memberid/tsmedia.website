@@ -20,6 +20,7 @@
                 :show-controls="false"
                 :items="galleryItems"
               />
+              {{ currentId }}
             </div>
             <div class="shop__detail-content">
               <div class="shop__detail-content__head">
@@ -147,16 +148,7 @@ export default {
     groupProducts: [],
     selectedProduct: {},
     variantSize: [],
-    galleryItems: [
-      {
-        src: 'https://picsum.photos/600/400/?image=0',
-        thumbnail: 'https://picsum.photos/64/64/?image=0',
-      },
-      {
-        src: 'https://picsum.photos/600/400/?image=10',
-        thumbnail: 'https://picsum.photos/64/64/?image=10',
-      },
-    ],
+    galleryItems: [],
     activeColor: '',
     activeSize: '',
     currentId: null,
@@ -252,8 +244,9 @@ export default {
       })
 
       this.activeColor = this.selectedProduct.customParams.color[0].name
-      this.handleVariantSize(this.activeColor)
+      console.log(selectImages)
       this.galleryItems = selectImages
+      this.handleVariantSize(this.activeColor)
       this.isOpen = true
     },
     handleVariantSize(name) {
@@ -269,7 +262,7 @@ export default {
 
       this.variantSize.size = this.variantSize.size.sort().reverse()
 
-      console.log(this.variantSize, this.currentId)
+      console.log(this.galleryItems, this.currentId)
     },
   },
 }
