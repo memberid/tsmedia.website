@@ -1,8 +1,11 @@
 <template>
-  <section v-if="isOpen" class="main__section">
+  <section class="main__section">
     <div class="main__shop">
       <div class="main__shop-wrapper">
-        <div class="shop__detail">
+        <div
+          v-if="Object.keys(selectedProduct).length !== 0"
+          class="shop__detail"
+        >
           <div class="shop__navigation mb-5">
             <vs-button color="white" transparent :to="'/shop'">
               <i class="bx bx-arrow-back text-xl"></i>
@@ -113,7 +116,7 @@
                     size="lg"
                     color="whatsapp"
                     blank
-                    :disabled="activeSize == ''"
+                    :disabled="activeSize == '' && variantSize.size[0] !== ''"
                     @click="doOrder"
                   >
                     <i class="bx bxl-whatsapp text-xl"></i>
@@ -141,13 +144,13 @@
 import _ from 'lodash'
 
 export default {
-  async asyncData({ params, $axios }) {
-    const slug = await params // When calling /abc the slug will be "abc"
-    const products = await $axios.$get(
-      `/echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
-    )
-    return { slug, products }
-  },
+  // async asyncData({ params, $axios }) {
+  //   const slug = await params // When calling /abc the slug will be "abc"
+  //   const products = await $axios.$get(
+  //     `/echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
+  //   )
+  //   return { slug, products }
+  // },
   data: () => ({
     isOpen: false,
     products: [],
@@ -161,11 +164,42 @@ export default {
     currentId: null,
   }),
   computed: {},
-  async mounted() {
-    await this.getDataProduct()
-    await this.getSelectedDataProduct()
+  async created() {
+    await this.fetchData()
   },
   methods: {
+    async fetchData() {
+      this.isOpen = false
+      const loading = this.$vs.loading()
+      try {
+        const comp = this
+        const url = `https://script.google.com/macros/s/AKfycbwS54Z4fIMAHFxJhYrnbO1pTr-NzbutQiTO1njHPY-SpV9q-o9teWyosCGJYpSBsvLNHw/exec`
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', url)
+        xhr.onload = await function () {
+          if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+              comp.products = JSON.parse(this.responseText)
+              comp.isOpen = true
+              setTimeout(() => {
+                comp.getDataProduct()
+                comp.getSelectedDataProduct()
+                loading.close()
+              }, 1000)
+            } else {
+              console.log(this.status, this.statusText)
+            }
+          }
+        }
+        xhr.onerror = () => console.log(xhr.response)
+        xhr.send(null)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log(this.$data)
+        this.isOpen = true
+      }
+    },
     getDataProduct() {
       this.products = _.filter(this.products.products, ['PUBLISH', 'YES'])
 
@@ -233,7 +267,7 @@ export default {
       this.isOpen = false
       const selectData = _.filter(this.groupProducts, [
         'GROUP_PRODUCT_CODE',
-        this.slug.code,
+        this.$route.params.code,
       ])
       this.selectedProduct = selectData[0]
 
@@ -286,7 +320,11 @@ export default {
     },
     doOrder() {
       let message = ''
-      message = `Halo, Saya tertarik untuk membeli,%0ANama Produk : ${this.selectedProduct.PRODUCT_DESIGN} - ${this.selectedProduct.PRODUCT_NAME},%0AKode Produk : ${this.activeCode},%0AWarna : ${this.activeColor},%0AUkuran : ${this.activeSize}`
+      message = `Halo, Saya tertarik untuk membeli,%0ANama Produk : ${this.selectedProduct.PRODUCT_DESIGN} - ${this.selectedProduct.PRODUCT_NAME},%0AKode Produk : ${this.activeCode},%0AWarna : ${this.activeColor}`
+      if (this.variantSize.size[0] !== '') {
+        const size = `,%0AUkuran : ${this.activeSize}`
+        message = message + size
+      }
       message = message.split(' ').join('%20')
 
       console.log(message)

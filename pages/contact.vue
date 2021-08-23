@@ -21,7 +21,7 @@
               </div>
               <div class="contact__info-item">
                 <span>Email</span>
-                <p class="font-semibold text-lg">info@ts-media.com</p>
+                <p class="font-semibold text-lg">info@tsmedia.id</p>
               </div>
               <div class="contact__info-item">
                 <span>Mobile Phone</span>

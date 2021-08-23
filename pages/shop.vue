@@ -210,13 +210,15 @@
 <script>
 import _ from 'lodash'
 export default {
-  async asyncData({ $axios, $config }) {
-    console.log($axios)
-    const products = await $axios.$get(
-      `echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`
-    )
-    return { products }
-  },
+  // async asyncData({ $axios, $config }) {
+  //   console.log($axios)
+  //   const products = await $axios.$get({
+  //     url: `/echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`,
+  //     baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
+  //   })
+  //   console.log(products)
+  //   return { products }
+  // },
   data: () => ({
     banners: [
       {
@@ -243,11 +245,10 @@ export default {
       },
     ],
   }),
+  async created() {
+    await this.fetchData()
+  },
   async mounted() {
-    await this.getCategories()
-    await this.getDataProduct()
-    this.handleFilterSort(this.activeFilterSort)
-
     // get category by design name
     // this.categoryDesigns = _.uniqBy(
     //   _.map(this.products, (item) => {
@@ -259,6 +260,37 @@ export default {
     // )
   },
   methods: {
+    fetchData() {
+      const loading = this.$vs.loading()
+      try {
+        const comp = this
+        const url = `https://script.google.com/macros/s/AKfycbwS54Z4fIMAHFxJhYrnbO1pTr-NzbutQiTO1njHPY-SpV9q-o9teWyosCGJYpSBsvLNHw/exec`
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', url)
+        xhr.onload = function () {
+          if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+              comp.products = JSON.parse(this.responseText)
+              comp.getCategories()
+              comp.getDataProduct()
+              comp.handleFilterSort(comp.activeFilterSort)
+              comp.isOpen = true
+              setTimeout(() => {
+                loading.close()
+              }, 500)
+            } else {
+              console.log(this.status, this.statusText)
+            }
+          }
+        }
+        xhr.onerror = () => console.log(xhr.response)
+        xhr.send(null)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        console.log(this.products)
+      }
+    },
     getDataProduct() {
       this.products = _.filter(this.products.products, ['PUBLISH', 'YES'])
 
@@ -369,7 +401,7 @@ export default {
         setTimeout(() => {
           loading.close()
           return this.filterProducts
-        }, 1000)
+        }, 500)
       } else if (value === 'Price : Low to High') {
         this.filterProducts = _.orderBy(
           this.groupProducts,
@@ -379,7 +411,7 @@ export default {
         setTimeout(() => {
           loading.close()
           return this.filterProducts
-        }, 1000)
+        }, 500)
       } else if (value === 'New Arrival') {
         // New Arrival
         this.filterProducts = _.orderBy(
@@ -390,7 +422,7 @@ export default {
         setTimeout(() => {
           loading.close()
           return this.filterProducts
-        }, 1000)
+        }, 500)
       }
     },
     handleFilterCategory(value) {
@@ -402,13 +434,13 @@ export default {
         setTimeout(() => {
           loading.close()
           return (this.filterProducts = filter)
-        }, 1000)
+        }, 500)
       } else {
         const filter = _.filter(this.groupProducts, { 'SUB-CATEGORY': value })
         setTimeout(() => {
           loading.close()
           return (this.filterProducts = filter)
-        }, 1000)
+        }, 500)
       }
     },
     goToDetail(to) {
