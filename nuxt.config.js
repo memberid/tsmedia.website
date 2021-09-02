@@ -42,9 +42,10 @@ export default {
     '@/plugins/vuesax',
     // '@/plugins/three',
     '@/plugins/glide',
-    { src: '@/plugins/hoverEffect', mode: 'client' },
     '@/plugins/fontawesome',
+    { src: '@/plugins/hoverEffect', mode: 'client' },
     { src: '@/plugins/lingallery', mode: 'client' },
+    { src: '@/plugins/vuescroll', mode: 'client' },
     '@/plugins/utils/filters/common.filter',
   ],
 
@@ -99,9 +100,8 @@ export default {
   },
 
   publicRuntimeConfig: {
-    axios: {
-      baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
-    },
+    baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
+    assetURL: 'https://ik.imagekit.io/tsmedia/static/assets',
   },
   default: {
     common: {
