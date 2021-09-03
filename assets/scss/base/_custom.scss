@@ -278,26 +278,34 @@ nav ul li {
 
     .program {
       &-wrapper {
-        @apply w-full h-screen w-auto flex md:px-60 gap-36 overflow-visible lg:overflow-hidden text-white;
+        @apply w-full h-screen w-auto flex md:px-60 gap-20 lg:gap-36 overflow-visible lg:overflow-hidden text-white;
       }
       &__content {
-        @apply h-2/5 xl:h-full flex justify-center flex-col text-center xl:text-left mx-8 xl:m-auto lg:pl-0 md:space-y-5 pb-28 lg:pb-0 md:pt-28 xl:pt-0;
-        width: 35rem;
+        @apply lg:h-2/5 xl:h-full flex justify-center flex-col text-center xl:text-left pl-8 md:mx-8 xl:m-auto md:pl-0 md:space-y-5 md:pt-28 xl:pt-0;
+        width: calc(100vw - 2rem);
+        padding-bottom: 4%;
+        @screen lg {
+          width: 35rem;
+          padding-bottom: 0;
+        }
       }
 
       &__logo {
-        @apply w-full  mb-4 hidden md:block;
+        @apply w-full mb-4 block;
         height: fit-content;
-        min-height: 6rem;
+        min-height: 4rem;
+        @screen lg {
+          min-height: 6rem;
+        }
         img {
-          @apply h-full md:m-auto xl:m-0;
+          @apply h-full m-auto xl:m-0;
         }
       }
 
       &__description {
         @apply text-white md:w-3/4 md:m-auto xl:w-full;
         p {
-          @apply text-base md:text-lg font-medium;
+          @apply text-sm md:text-lg font-medium;
         }
       }
 
@@ -309,17 +317,24 @@ nav ul li {
       }
 
       &__assets {
-        @apply flex h-full md:h-auto xl:h-full  gap-4;
+        @apply flex h-full md:h-auto xl:h-full lg:pb-0  gap-4;
+        padding-bottom: 4%;
+        @screen lg {
+          padding-bottom: 0;
+        }
 
         &-image {
           position: relative;
           display: block;
           max-width: 100vw;
           img {
-            aspect-ratio: 3/1;
+            @apply rounded shadow-lg;
             margin: 0 auto;
             max-width: 100vw;
             max-height: 90vh;
+            @screen lg {
+              aspect-ratio: 3/1;
+            }
           }
         }
 
@@ -338,7 +353,7 @@ nav ul li {
         display: flex;
 
         img {
-          @apply h-5/6;
+          @apply h-full lg:h-5/6;
           max-width: 100vw;
           margin: auto 0;
           margin-bottom: 0;

@@ -21,6 +21,9 @@
                 Watch on Youtube
               </vs-button>
             </div>
+            <!-- <div class="program__hint">
+              <font-awesome-icon icon="['fab', 'arrow-right']" />
+            </div> -->
           </div>
           <div class="program__backdrop">
             <img
@@ -33,7 +36,7 @@
             <div
               v-for="(item, idx) in selectProgram.assets"
               :key="idx"
-              class="program__assets mx-20"
+              class="program__assets mx-12 lg:mx-20"
               :class="item.placement"
             >
               <div class="program__assets-image">
@@ -48,11 +51,11 @@
         </div>
       </vuescroll>
     </div>
-    <div class="background">
+    <div class="background opacity-40">
       <div class="h-full w-full">
         <img
           class="object-cover"
-          :src="require('~/assets/img/bg-gradient2.png')"
+          :src="require('~/assets/img/bg-gradient-white.png')"
           alt=""
         />
       </div>
@@ -305,6 +308,7 @@ export default {
       },
       bar: {
         opacity: 0,
+        size: '2px',
       },
       vuescroll: {
         mode: 'native',
