@@ -589,7 +589,7 @@ nav ul li {
       }
 
       &__list {
-        @apply flex w-full m-auto flex-col md:flex-row gap-20 md:gap-0 pb-20 md:pb-0;
+        @apply flex w-full m-auto flex-col md:flex-row gap-20  pb-20 md:pb-0;
         @screen md {
           width: 50rem;
         }
