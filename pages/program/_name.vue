@@ -78,7 +78,7 @@ export default {
         to: 'travel-secrets',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VLzY9OHyqe_J0f-x76u0vvh`,
         description:
-          'A non-script webseries program hosted by Luna Maya and Marianne Rumantir. These two independent women are going to share their experience and inspirations to travelers from all over the world. Better yet, Travel Secrets will show you anti-mainstream travel locations or the hidden gems from many destinations.',
+          'A non-scripted web-series program hosted by Luna Maya and Marianne Rumantir. These two adventurous females shares their experiences and travel discoveries from all around the world.',
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
@@ -107,7 +107,7 @@ export default {
         to: 'ts-talks',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VJkLoAy0CxGGLtSAOm1W27W`,
         description:
-          'Host by Luna and Marianne, TS Talks shares inspiring stories and guest interviews with different public figures across a variety of industry.',
+          'TS Talks is an Indonesian talk show hosted by Luna and Marianne featuring guest interviews and a variety of fun segments with different public figures.',
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
@@ -144,7 +144,7 @@ export default {
         to: 'cipika-cipiki',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VJJWkHC2FpPFAoraLUzIyA-`,
         description:
-          'Cipika-Cipiki is a program where Luna and Marianne will be comparing the same cuisine from two different restaurants. How exciting Luna and Marianne on tasting the food? Watch it now only on TS Media YouTube Channel!',
+          'Cicip Piring Kanan - Cicip Piring Kiri is a fun culinary program where our hosts discover different cuisines from different areas of Indonesia and the world featuring special guests on every episode. ',
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
@@ -173,7 +173,7 @@ export default {
         to: 'dates-with-juna',
         link: `https://www.youtube.com/channel/UCxmrFvg9g2jdErW587nm7-g/videos`,
         description:
-          'Dates with Ju-Na is a romantic dating talk show with Herjunot Ali and Luna Maya. They will be talking about romantic issues with some guests who also will share their experience of romantic dating.',
+          'Dates with a romantic dating talk-show that talks about relationships, current trends and culture with different hosts in every season.',
         assets: [],
       },
       {
@@ -181,7 +181,7 @@ export default {
         to: 'hoki',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VKbpzTis-5z_9KX29MFygFh`,
         description:
-          'In HOKI, Dimas Beck will explore the hobbies of famous people in Indonesia. He will visit a different guest and talk about how much money they are spending on their hobbies. There is also an inspirative story behind their success.',
+          'Hobi Orang Kece Indonesia with Dimas Beck explores the eccentricities of the unique hobbies of Indonesians.',
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
@@ -210,7 +210,7 @@ export default {
         to: 'signature',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VL8tkHYrqKB7aff1GVB7mWI`,
         description:
-          'Hello, sports enthusiast! In this program, Sigi Wimala as our host for SIGnature will share her journey on exploring new sports. Sigi will also collaborate with another sports enthusiast and show us how to start a new journey on the sport. SIGnature is not only for experts but also for beginners, so don’t worry!',
+          'Sigi Wimala takes the audience into the different world of sports and exciting adventures.',
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
@@ -239,7 +239,7 @@ export default {
         to: 'tanggal-merah',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VL66ye3_zJEuw7xgbiA9kWs`,
         description:
-          'Budget traveling, why not? Tanggal Merah hosted by Jerome Kurnia and Carissa Perusset is a program where you can find many hidden gems in Indonesia at a low cost. It’s going to be fun and memorable in every place that they visited. So, if you like budget traveling, you have to watch Tanggal Merah as soon as possible because you will be tempted to visit the places too!',
+          'Dedicated for travelers who are looking for short-trips and adventurous travel ideas, Tanggal Merah takes you to hidden gems of Indonesia (and the world) that are smart and easy on the pocket type of travels.',
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
@@ -269,7 +269,7 @@ export default {
         to: 'momma-patz',
         link: `https://youtube.com/playlist?list=PL9GuwZR5c2VIpUj_4mC4dAistgbnSyAF1`,
         description:
-          'It’s Momma Patz Time! A cooking show program hosted by the beautiful model, Patricia Panigoro. Familiarly called Pat, the model and a housewife, will be sharing to you various interesting recipes, including menus for dessert she often makes and creates. So, make sure you don’t miss out her new recipes!',
+          'In this baking show, our sexy next door momma, Patricia Panigoro, will share her secret recipes inspired from her travels around the world.',
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',

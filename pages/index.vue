@@ -92,7 +92,7 @@ export default {
         coverImg: require(`~/assets/img/programs/Travel-Secrets_cover.png`),
         backgroundImg: require(`~/assets/img/programs/Travel-Secrets_image.png`),
         description:
-          'A non-scripted web-series program hosted by Luna Maya and Marianne Rumantir. These two  adventurous females shares their experiences and travel discoveries from all around the world.',
+          'A non-scripted web-series program hosted by Luna Maya and Marianne Rumantir. These two adventurous females shares their experiences and travel discoveries from all around the world.',
       },
       {
         title: 'TS Talks',
