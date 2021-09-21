@@ -21,11 +21,24 @@
                 <img class="w-full h-full" :src="item.image" alt="" />
               </template>
               <template #text>
-                <p
-                  class="tracking-tighter xl:tracking-tight font-medium p-4 max-h-44 overflow-auto"
+                <div
+                  class="card__overview-text tracking-tighter xl:tracking-tight font-medium p-4 max-h-44 overflow-auto"
                 >
-                  {{ item.description }}
-                </p>
+                  <p>
+                    {{ item.description }}
+                  </p>
+                  <div class="flex justify-end pt-4">
+                    <vs-button
+                      class="mx-auto mt-4 font-bold"
+                      blank
+                      border
+                      small
+                      @click="doAsk(item.name)"
+                    >
+                      Request for Rate Card
+                    </vs-button>
+                  </div>
+                </div>
               </template>
               <template #interactions>
                 <span
@@ -147,6 +160,13 @@ Marianne’s an avid traveler and have built her career as a marketing professio
           this.navCarousel = this.profiles.length - 1
         }
       }
+    },
+    doAsk(name) {
+      let message = ''
+      message = `Halo, Saya ingin Request Rate Card dari Talent ${name}`
+      const link =
+        'https://api.whatsapp.com/send?phone=6281298626560' + '&text=' + message
+      window.open(link)
     },
   },
 }

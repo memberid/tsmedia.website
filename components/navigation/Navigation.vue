@@ -69,9 +69,9 @@ export default {
   data: () => ({
     menu: [
       { title: 'Our Talents', to: '/talents' },
-      { title: 'About Us', to: '/about' },
+      { title: 'Partners', to: '/partners' },
       { title: 'Shop', to: '/shop' },
-      // { title: 'Experience', to: '/experience' },
+      { title: 'About Us', to: '/about' },
       { title: 'Contact Us', to: '/contact' },
     ],
     activeMenu: false,
