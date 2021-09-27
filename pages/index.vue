@@ -5,29 +5,32 @@
         <div class="content__brand desktop">
           <img
             v-gsap.fromTo="[
-              { opacity: 0, y: 200, ease: 'Power1.easeInOut' },
+              { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
               { opacity: 1, y: 0, duration: 0.5, ease: 'Power1.easeInOut' },
             ]"
             :src="getAssetsURL(programs[navCarousel].to, 'logo.svg')"
             alt=""
           />
         </div>
-        <div class="content__description">
-          <p
-            v-gsap.fromTo="[
-              { opacity: 0, y: 100, ease: 'Power1.easeInOut' },
-              { opacity: 1, y: 0, duration: 0.75, ease: 'Power1.easeInOut' },
-            ]"
-          >
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
+            { opacity: 1, y: 0, duration: 0.75, ease: 'Power1.easeInOut' },
+          ]"
+          class="content__description"
+        >
+          <p>
             {{ programs[navCarousel].description }}
           </p>
         </div>
-        <div class="content__button">
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
+            { opacity: 1, y: 0, duration: 1.25, ease: 'Power1.easeInOut' },
+          ]"
+          class="content__button"
+        >
           <vs-button
-            v-gsap.fromTo="[
-              { opacity: 0, ease: 'Power1.easeInOut' },
-              { opacity: 1, duration: 1, ease: 'Power1.easeInOut' },
-            ]"
             class="font-bold"
             size="large"
             :to="'/program/' + programs[navCarousel].to"
