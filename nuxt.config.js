@@ -46,6 +46,7 @@ export default {
     { src: '@/plugins/hoverEffect', mode: 'client' },
     { src: '@/plugins/lingallery', mode: 'client' },
     { src: '@/plugins/vuescroll', mode: 'client' },
+    { src: '@/plugins/vue-dragscroll', mode: 'client' },
     '@/plugins/utils/filters/common.filter',
   ],
 
