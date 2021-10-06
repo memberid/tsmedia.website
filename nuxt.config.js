@@ -60,6 +60,7 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-gsap-module',
     '@braid/vue-formulate/nuxt',
+    '@nuxtjs/google-analytics',
   ],
 
   pageTransition: {
@@ -103,6 +104,12 @@ export default {
   publicRuntimeConfig: {
     baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
     assetURL: 'https://ik.imagekit.io/tsmedia/static/assets',
+  },
+  googleAnalytics: {
+    id: '288346545',
+    autoTracking: {
+      screenview: true,
+    },
   },
   default: {
     common: {
