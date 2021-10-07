@@ -232,6 +232,10 @@ export default {
             placement: 'center',
           },
           {
+            filename: 'mockup-socmed-1.png',
+            placement: 'center',
+          },
+          {
             filename: 'program_gif-2.gif',
             placement: 'top',
           },

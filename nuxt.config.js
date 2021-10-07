@@ -106,7 +106,7 @@ export default {
     assetURL: 'https://ik.imagekit.io/tsmedia/static/assets',
   },
   googleAnalytics: {
-    id: '288346545',
+    id: 'UA-209050522-1',
     autoTracking: {
       screenview: true,
     },
