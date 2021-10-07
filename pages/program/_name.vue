@@ -80,7 +80,10 @@
             class="program__assets mx-12 lg:mx-20"
             :class="item.placement"
           >
-            <div class="program__assets-image">
+            <div
+              class="program__assets-image"
+              :class="item.style.shadow ? 'shadow' : ''"
+            >
               <img
                 class="object-contain"
                 :src="getAssetsURL(selectProgram.to, item.filename)"
@@ -126,22 +129,37 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -155,30 +173,51 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-3.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_image-3.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -192,22 +231,37 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -229,26 +283,44 @@ export default {
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
-          // {
-          //   filename: 'mockup-socmed-1.png',
-          //   placement: 'center',
-          // },
+          {
+            filename: 'mockup-socmed-1.png',
+            style: {
+              shadow: false,
+            },
+            placement: 'center',
+          },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -262,22 +334,37 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -291,23 +378,38 @@ export default {
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
 
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],
@@ -321,22 +423,37 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            style: {
+              shadow: true,
+            },
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            style: {
+              shadow: true,
+            },
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            style: {
+              shadow: true,
+            },
             placement: 'center',
           },
         ],

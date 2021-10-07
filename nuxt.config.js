@@ -107,6 +107,7 @@ export default {
   },
   googleAnalytics: {
     id: 'UA-209050522-1',
+    layer: 'dataLayer',
     autoTracking: {
       screenview: true,
     },
