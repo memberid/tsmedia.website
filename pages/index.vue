@@ -5,24 +5,31 @@
         <div class="content__brand desktop">
           <img
             v-gsap.fromTo="[
-              { opacity: 0, y: 200, ease: 'sine' },
-              { opacity: 1, y: 0, duration: 0.5, ease: 'sine' },
+              { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
+              { opacity: 1, y: 0, duration: 0.5, ease: 'Power1.easeInOut' },
             ]"
-            :src="programs[navCarousel].logo"
+            :src="getAssetsURL(programs[navCarousel].to, 'logo.svg')"
             alt=""
           />
         </div>
-        <div class="content__description">
-          <p
-            v-gsap.fromTo="[
-              { opacity: 0, y: 100, ease: 'sine' },
-              { opacity: 1, y: 0, duration: 0.75, ease: 'sine' },
-            ]"
-          >
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
+            { opacity: 1, y: 0, duration: 0.75, ease: 'Power1.easeInOut' },
+          ]"
+          class="content__description"
+        >
+          <p>
             {{ programs[navCarousel].description }}
           </p>
         </div>
-        <div class="content__button">
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
+            { opacity: 1, y: 0, duration: 1.25, ease: 'Power1.easeInOut' },
+          ]"
+          class="content__button"
+        >
           <vs-button
             class="font-bold"
             size="large"
@@ -46,7 +53,7 @@
           <vue-glide-slide v-for="(item, i) in programs" :key="i">
             <div class="slide one">
               <div class="slider-image">
-                <img :src="item.coverImg" />
+                <img :src="getAssetsURL(item.to, 'program_cover.png')" />
               </div>
             </div>
           </vue-glide-slide>
@@ -88,54 +95,36 @@ export default {
       {
         title: 'Travel Secrets',
         to: 'travel-secrets',
-        logo: require(`~/assets/img/programs/logo-travel-secrets.svg`),
-        coverImg: require(`~/assets/img/programs/Travel-Secrets_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Travel-Secrets_image.png`),
         description:
           'A non-scripted web-series program hosted by Luna Maya and Marianne Rumantir. These two adventurous females shares their experiences and travel discoveries from all around the world.',
       },
       {
         title: 'TS Talks',
         to: 'ts-talks',
-        logo: require(`~/assets/img/programs/logo-ts-talks.svg`),
-        coverImg: require(`~/assets/img/programs/TS-Talks_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/TS-Talks_image.png`),
         description:
           'TS Talks is an Indonesian talk show hosted by Luna and Marianne featuring guest interviews and a variety of fun segments with different public figures.',
       },
       {
         title: 'Cipika Cipiki',
         to: 'cipika-cipiki',
-        logo: require(`~/assets/img/programs/logo-cipika-cipiki.svg`),
-        coverImg: require(`~/assets/img/programs/Cipika-Cipiki_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Cipika-Cipiki_image.png`),
         description:
           'Cicip Piring Kanan - Cicip Piring Kiri is a fun culinary program where our hosts discover different cuisines from different areas of Indonesia and the world featuring special guests on every episode.',
       },
       {
         title: 'Dates with JuNa',
         to: 'dates-with-juna',
-        logo: require(`~/assets/img/programs/logo-ju-na.svg`),
-        coverImg: require(`~/assets/img/programs/Dates-with-JuNa_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Dates-with-JuNa_image.png`),
         description:
           'Dates with a romantic dating talk-show that talks about relationships, current trends and culture with different hosts in every season.',
       },
       {
         title: 'HOKI',
         to: 'hoki',
-        logo: require(`~/assets/img/programs/logo-hoki.svg`),
-        coverImg: require(`~/assets/img/programs/HOKI_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/HOKI_image.png`),
         description:
           'Hobi Orang Kece Indonesia with Dimas Beck explores the eccentricities of the unique hobbies of Indonesians.',
       },
       {
         title: 'Signature',
         to: 'signature',
-        logo: require(`~/assets/img/programs/logo-signature.svg`),
-        coverImg: require(`~/assets/img/programs/Signature_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Signature_image.png`),
         description:
           'Sigi Wimala takes the audience into the different world of sports and exciting adventures.',
       },
@@ -143,18 +132,12 @@ export default {
       {
         title: 'Tanngal Merah',
         to: 'tanggal-merah',
-        logo: require(`~/assets/img/programs/logo-tanggal-merah.svg`),
-        coverImg: require(`~/assets/img/programs/Tanggal-Merah_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Tanggal-Merah_image.png`),
         description:
           'Dedicated for travelers who are looking for short-trips and adventurous travel ideas, Tanggal Merah takes you to hidden gems of Indonesia (and the world) that are smart and easy on the pocket type of travels.',
       },
       {
         title: 'Momma Patz',
         to: 'momma-patz',
-        logo: require(`~/assets/img/programs/logo-momma-patz.svg`),
-        coverImg: require(`~/assets/img/programs/Momma-Patz_cover.png`),
-        backgroundImg: require(`~/assets/img/programs/Momma-Patz_image.png`),
         description:
           'In this baking show, our sexy next door momma, Patricia Panigoro, will share her secret recipes inspired from her travels around the world.',
       },
@@ -187,16 +170,23 @@ export default {
     backgroundPrograms() {
       const data = []
       const filter = this.programs.filter((item) => {
-        return item.backgroundImg
+        return item.to
       })
       filter.forEach((item) => {
-        data.push(item.backgroundImg)
+        data.push(this.getAssetsURL(item.to, 'program_background.png'))
       })
       console.log(data)
       return data
     },
   },
   mounted() {},
-  methods: {},
+  methods: {
+    getAssetsURL(program, filename) {
+      const data =
+        this.$config.assetURL + '/programs/' + program + '/' + filename
+      console.log(data)
+      return data
+    },
+  },
 }
 </script>

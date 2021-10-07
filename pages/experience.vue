@@ -99,37 +99,37 @@ export default {
     bannerExperiences: [
       {
         title: 'Tanah Lot TS Experience',
-        experienceImg: require('~/assets/img/experience/experience-banner.png'),
+        // experienceImg: require('~/assets/img/experience/experience-banner.png'),
       },
       {
         title: 'Tanah Lot TS Experience',
-        experienceImg: require('~/assets/img/experience/experience-banner.png'),
+        // experienceImg: require('~/assets/img/experience/experience-banner.png'),
       },
       {
         title: 'Tanah Lot TS Experience',
-        experienceImg: require('~/assets/img/experience/experience-banner.png'),
+        // experienceImg: require('~/assets/img/experience/experience-banner.png'),
       },
     ],
     cardExperiences: [
       {
         title: 'Tanah Lot TS Experience',
         description: `Price: IDR 500,000`,
-        experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
+        // experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
       },
       {
         title: 'Explore Malang in 1 Day',
         description: `Price: IDR 300,000`,
-        experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
+        // experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
       },
       {
         title: 'Tanah Lot TS Experience',
         description: `Price: IDR 500,000`,
-        experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
+        // experienceImg: require('~/assets/img/experience/Tanah-Lot-TS-Experience.png'),
       },
       {
         title: 'Explore Malang in 1 Day',
         description: `Price: IDR 300,000`,
-        experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
+        // experienceImg: require('~/assets/img/experience/Explore-Malang-in-1-Day.png'),
       },
     ],
   }),

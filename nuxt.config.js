@@ -46,6 +46,7 @@ export default {
     { src: '@/plugins/hoverEffect', mode: 'client' },
     { src: '@/plugins/lingallery', mode: 'client' },
     { src: '@/plugins/vuescroll', mode: 'client' },
+    { src: '@/plugins/vue-dragscroll', mode: 'client' },
     '@/plugins/utils/filters/common.filter',
   ],
 
@@ -59,6 +60,7 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-gsap-module',
     '@braid/vue-formulate/nuxt',
+    '@nuxtjs/google-analytics',
   ],
 
   pageTransition: {
@@ -102,6 +104,12 @@ export default {
   publicRuntimeConfig: {
     baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
     assetURL: 'https://ik.imagekit.io/tsmedia/static/assets',
+  },
+  googleAnalytics: {
+    id: 'UA-209050522-1',
+    autoTracking: {
+      screenview: true,
+    },
   },
   default: {
     common: {

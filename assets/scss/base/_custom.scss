@@ -270,18 +270,19 @@ nav ul li {
     // height: 100vh;
     // width: 100vw;
     // overflow: hidden;
-    @apply w-screen  overflow-auto xl:overflow-hidden mt-16 lg:m-auto lg:flex items-center justify-center;
+    @apply w-screen  overflow-auto xl:overflow-hidden mt-16 md:m-auto lg:flex items-center justify-center;
     height: calc(100vh - 10rem);
-    @screen lg {
+    @screen md {
       height: 100vh;
     }
 
     .program {
       &-wrapper {
-        @apply w-full h-screen w-auto flex md:px-60 gap-20 lg:gap-36 overflow-visible lg:overflow-hidden text-white;
+        @apply w-screen h-full lg:h-screen w-auto grid grid-flow-col lg:px-60 gap-20 lg:gap-36 overflow-x-scroll overflow-y-hidden text-white;
+        cursor: grab;
       }
       &__content {
-        @apply md:h-2/5 lg:h-full flex justify-center flex-col text-center lg:text-left pl-8 md:mx-8 lg:m-auto md:pl-0 md:space-y-5 md:pt-28 lg:pt-0;
+        @apply md:h-full flex justify-center flex-col text-center lg:text-left pl-8 md:mx-8 lg:m-auto md:pl-0 md:space-y-5 md:pt-28 lg:pt-0;
         width: calc(100vw - 2rem);
         padding-bottom: 4%;
         @screen lg {
@@ -352,10 +353,10 @@ nav ul li {
       }
 
       &__backdrop {
-        display: flex;
+        @apply lg:h-screen flex;
 
         img {
-          @apply h-full lg:h-5/6;
+          @apply md:h-5/6;
           max-width: 100vw;
           margin: auto 0;
           margin-bottom: 0;
@@ -515,10 +516,10 @@ nav ul li {
       height: 100vh;
     }
     &-wrapper {
-      @apply h-full lg:h-auto w-auto sm:flex items-baseline justify-center gap-20 xl:gap-40 mx-8 xl:m-auto overflow-visible sm:overflow-hidden text-white;
+      @apply h-full lg:h-auto w-auto sm:flex items-baseline justify-center gap-16 xl:gap-24 mx-8 xl:m-auto overflow-visible sm:overflow-hidden text-white;
     }
     .about {
-      @apply w-full lg:w-2/4 h-full flex justify-center flex-col;
+      @apply w-full lg:w-2/5 h-full flex justify-center flex-col;
 
       &__headline {
         @apply space-y-2 pb-4;
@@ -531,7 +532,7 @@ nav ul li {
       &-points {
         @apply h-full flex lg:block justify-center flex-col w-full lg:w-2/5;
         &__list {
-          @apply space-y-14;
+          @apply grid grid-cols-2 gap-12;
         }
 
         &__item {

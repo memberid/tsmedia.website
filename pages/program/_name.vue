@@ -1,55 +1,95 @@
 <template>
   <section class="main__section">
     <div class="main__program">
-      <vuescroll :ops="ops">
-        <!-- Your content... -->
-        <div class="program-wrapper">
-          <div class="program__content">
-            <div class="program__logo">
-              <img :src="getAssetsURL(selectProgram.to, 'logo.svg')" alt="" />
-            </div>
-            <!-- <div class="program__subtitle">
+      <!-- <vuescroll :ops="ops">
+  <div class="program-wrapper">
+    <div class="program__content">
+      <div class="program__logo">
+        <img :src="getAssetsURL(selectProgram.to, 'logo.svg')" alt="" />
+      </div>
+      <div class="program__description">
+        <p>
+          {{ selectProgram.description }}
+        </p>
+      </div>
+
+      <div class="program__button">
+        <vs-button class="font-bold" blank :href="selectProgram.link">
+          Watch on Youtube
+        </vs-button>
+      </div>
+    </div>
+    <div class="program__backdrop">
+      <img
+        class="object-contain"
+        :src="getAssetsURL(selectProgram.to, 'talents_backdrop.png')"
+        alt=""
+      />
+    </div>
+    <template v-if="selectProgram.assets.length">
+      <div
+        v-for="(item, idx) in selectProgram.assets"
+        :key="idx"
+        class="program__assets mx-12 lg:mx-20"
+        :class="item.placement"
+      >
+        <div class="program__assets-image">
+          <img
+            class="object-contain"
+            :src="getAssetsURL(selectProgram.to, item.filename)"
+            alt=""
+          />
+        </div>
+      </div>
+    </template>
+  </div>
+</vuescroll> -->
+      <div v-dragscroll.x class="program-wrapper">
+        <div class="program__content">
+          <div class="program__logo">
+            <img :src="getAssetsURL(selectProgram.to, 'logo.svg')" alt="" />
+          </div>
+          <!-- <div class="program__subtitle">
               <span>Cast :</span>
             </div> -->
-            <div class="program__description">
-              <p>
-                {{ selectProgram.description }}
-              </p>
-            </div>
-            <div class="program__button">
-              <vs-button class="font-bold" blank :href="selectProgram.link">
-                Watch on Youtube
-              </vs-button>
-            </div>
-            <!-- <div class="program__hint">
+          <div class="program__description">
+            <p>
+              {{ selectProgram.description }}
+            </p>
+          </div>
+          <div class="program__button">
+            <vs-button class="font-bold" blank :href="selectProgram.link">
+              Watch on Youtube
+            </vs-button>
+          </div>
+          <!-- <div class="program__hint">
               <font-awesome-icon icon="['fab', 'arrow-right']" />
             </div> -->
-          </div>
-          <div class="program__backdrop">
-            <img
-              class="object-contain"
-              :src="getAssetsURL(selectProgram.to, 'talents_backdrop.png')"
-              alt=""
-            />
-          </div>
-          <template v-if="selectProgram.assets.length">
-            <div
-              v-for="(item, idx) in selectProgram.assets"
-              :key="idx"
-              class="program__assets mx-12 lg:mx-20"
-              :class="item.placement"
-            >
-              <div class="program__assets-image">
-                <img
-                  class="object-contain"
-                  :src="getAssetsURL(selectProgram.to, item.filename)"
-                  alt=""
-                />
-              </div>
-            </div>
-          </template>
         </div>
-      </vuescroll>
+        <div class="program__backdrop">
+          <img
+            class="object-contain"
+            :src="getAssetsURL(selectProgram.to, 'talents_backdrop.png')"
+            alt=""
+          />
+        </div>
+        <template v-if="selectProgram.assets.length">
+          <div
+            v-for="(item, idx) in selectProgram.assets"
+            :key="idx"
+            class="program__assets mx-12 lg:mx-20"
+            :class="item.placement"
+          >
+            <div class="program__assets-image">
+              <img
+                class="object-contain"
+                :src="getAssetsURL(selectProgram.to, item.filename)"
+                alt=""
+              />
+            </div>
+          </div>
+        </template>
+      </div>
     </div>
     <div class="background opacity-40">
       <div class="h-full w-full">
@@ -63,6 +103,7 @@
   </section>
 </template>
 <script>
+import { dragscroll } from 'vue-dragscroll'
 export default {
   // async asyncData({ $axios, $config: { baseURL } }) {
   //   const banners = await $axios
@@ -71,6 +112,9 @@ export default {
 
   //   return { banners }
   // },
+  directives: {
+    dragscroll,
+  },
   data: () => ({
     programs: [
       {
@@ -187,6 +231,10 @@ export default {
             filename: 'program_image-2.png?tr=h-419,w-993',
             placement: 'center',
           },
+          // {
+          //   filename: 'mockup-socmed-1.png',
+          //   placement: 'center',
+          // },
           {
             filename: 'program_gif-2.gif',
             placement: 'top',
