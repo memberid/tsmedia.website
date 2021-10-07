@@ -231,10 +231,10 @@ export default {
             filename: 'program_image-2.png?tr=h-419,w-993',
             placement: 'center',
           },
-          {
-            filename: 'mockup-socmed-1.png',
-            placement: 'center',
-          },
+          // {
+          //   filename: 'mockup-socmed-1.png',
+          //   placement: 'center',
+          // },
           {
             filename: 'program_gif-2.gif',
             placement: 'top',

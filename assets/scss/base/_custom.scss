@@ -516,10 +516,10 @@ nav ul li {
       height: 100vh;
     }
     &-wrapper {
-      @apply h-full lg:h-auto w-auto sm:flex items-baseline justify-center gap-20 xl:gap-40 mx-8 xl:m-auto overflow-visible sm:overflow-hidden text-white;
+      @apply h-full lg:h-auto w-auto sm:flex items-baseline justify-center gap-16 xl:gap-24 mx-8 xl:m-auto overflow-visible sm:overflow-hidden text-white;
     }
     .about {
-      @apply w-full lg:w-2/4 h-full flex justify-center flex-col;
+      @apply w-full lg:w-2/5 h-full flex justify-center flex-col;
 
       &__headline {
         @apply space-y-2 pb-4;
@@ -532,7 +532,7 @@ nav ul li {
       &-points {
         @apply h-full flex lg:block justify-center flex-col w-full lg:w-2/5;
         &__list {
-          @apply space-y-14;
+          @apply grid grid-cols-2 gap-12;
         }
 
         &__item {
