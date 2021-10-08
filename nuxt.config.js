@@ -107,13 +107,18 @@ export default {
   },
   googleAnalytics: {
     id: 'UA-209050522-1',
-    layer: 'dataLayer',
+    // debug: {
+    //   enabled: true,
+    //   sendHitTask: true,
+    // },
     autoTracking: {
-      screenview: true,
-    },
-    debug: {
-      enabled: true,
-      sendHitTask: true,
+      pageviewTemplate: (route) => {
+        return {
+          page: route.path,
+          title: window.document.title,
+          location: window.location.href,
+        }
+      },
     },
   },
   default: {
