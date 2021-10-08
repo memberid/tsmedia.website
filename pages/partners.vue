@@ -292,7 +292,6 @@ export default {
     handleControlCarousel(event) {
       if (event === 'next') {
         this.navCarousel = (this.navCarousel + 1) % this.profiles.length
-        console.log(this.navCarousel)
       } else {
         this.navCarousel = (this.navCarousel - 1) % this.profiles.length
         if (this.navCarousel < 0) {
@@ -302,7 +301,6 @@ export default {
     },
     getAssetsURL(dir, subdir, filename) {
       const data = this.$config.assetURL + dir + subdir + '/' + filename
-      console.log(data)
       return data
     },
   },

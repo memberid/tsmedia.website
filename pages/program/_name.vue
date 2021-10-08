@@ -80,12 +80,20 @@
             class="program__assets mx-12 lg:mx-20"
             :class="item.placement"
           >
-            <div class="program__assets-image">
-              <img
-                class="object-contain"
-                :src="getAssetsURL(selectProgram.to, item.filename)"
-                alt=""
-              />
+            <div
+              class="program__assets-image"
+              :class="item.styleClass ? item.styleClass : ''"
+            >
+              <a
+                :target="item.link ? '_blank' : ''"
+                :href="item.link ? item.link : '#'"
+              >
+                <img
+                  class="object-contain"
+                  :src="getAssetsURL(selectProgram.to, item.filename)"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </template>
@@ -126,22 +134,34 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link:
+              'https://www.instagram.com/p/CTKKWHKFJHB/?utm_medium=copy_link',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -155,30 +175,44 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link:
+              'https://www.instagram.com/p/CTo-2u_hdkg/?utm_medium=copy_link',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-3.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_image-3.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -192,22 +226,34 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link:
+              'https://www.instagram.com/p/CNxKJ2Kg_k2/?utm_medium=copy_link',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -229,26 +275,33 @@ export default {
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
-          // {
-          //   filename: 'mockup-socmed-1.png',
-          //   placement: 'center',
-          // },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link: 'https://instagram.com/ts.hoki?utm_medium=copy_link',
+            placement: 'center',
+          },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -262,22 +315,33 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link: 'https://instagram.com/ts.signature?utm_medium=copy_link',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -291,23 +355,34 @@ export default {
         assets: [
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link: 'https://instagram.com/ts.tanggalmerah?utm_medium=copy_link',
             placement: 'center',
           },
 
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -321,22 +396,33 @@ export default {
         assets: [
           {
             filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'mockup-socmed-1.png',
+            styleClass: 'mockup',
+            link: 'https://instagram.com/ts.mommapatz?utm_medium=copy_link',
             placement: 'center',
           },
           {
             filename: 'program_gif-1.gif?tr=h-280',
+            styleClass: 'shadow',
             placement: 'top',
           },
           {
             filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
           {
             filename: 'program_gif-2.gif',
+            styleClass: 'shadow',
             placement: 'bottom',
           },
           {
             filename: 'program_background.png?tr=h-419,w-993',
+            styleClass: 'shadow',
             placement: 'center',
           },
         ],
@@ -381,7 +467,6 @@ export default {
     getAssetsURL(program, filename) {
       const data =
         this.$config.assetURL + '/programs/' + program + '/' + filename
-      console.log(data)
       return data
     },
   },

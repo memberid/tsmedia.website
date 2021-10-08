@@ -107,8 +107,18 @@ export default {
   },
   googleAnalytics: {
     id: 'UA-209050522-1',
+    // debug: {
+    //   enabled: true,
+    //   sendHitTask: true,
+    // },
     autoTracking: {
-      screenview: true,
+      pageviewTemplate: (route) => {
+        return {
+          page: route.path,
+          title: window.document.title,
+          location: window.location.href,
+        }
+      },
     },
   },
   default: {
