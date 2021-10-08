@@ -167,7 +167,6 @@ Marianne’s an avid traveler and have built her career as a marketing professio
     },
     getAssetsURL(filename) {
       const data = this.$config.assetURL + '/talents/' + filename
-      console.log(data)
       return data
     },
     doAsk(name) {

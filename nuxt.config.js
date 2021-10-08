@@ -111,6 +111,10 @@ export default {
     autoTracking: {
       screenview: true,
     },
+    debug: {
+      enabled: true,
+      sendHitTask: true,
+    },
   },
   default: {
     common: {

@@ -345,6 +345,12 @@ nav ul li {
               @apply shadow-lg;
             }
           }
+
+          &.mockup {
+            img {
+              @apply h-96 md:h-full;
+            }
+          }
         }
 
         &.top {

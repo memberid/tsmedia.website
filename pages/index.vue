@@ -175,7 +175,6 @@ export default {
       filter.forEach((item) => {
         data.push(this.getAssetsURL(item.to, 'program_background.png'))
       })
-      console.log(data)
       return data
     },
   },
@@ -184,7 +183,6 @@ export default {
     getAssetsURL(program, filename) {
       const data =
         this.$config.assetURL + '/programs/' + program + '/' + filename
-      console.log(data)
       return data
     },
   },

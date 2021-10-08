@@ -294,7 +294,6 @@ export default {
       ])[0]
 
       this.variantSize.size = this.variantSize.size.sort().reverse()
-      console.log(selectImages)
       this.galleryItems = selectImages
       this.isOpen = true
     },
@@ -327,7 +326,6 @@ export default {
       }
       message = message.split(' ').join('%20')
 
-      console.log(message)
       const link =
         'https://api.whatsapp.com/send?phone=6281298626560' + '&text=' + message
       window.open(link)
