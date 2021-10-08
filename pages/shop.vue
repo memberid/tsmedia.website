@@ -288,6 +288,7 @@ export default {
       } catch (error) {
         console.log(error)
       } finally {
+        console.log('fetchData Shop')
       }
     },
     getDataProduct() {
@@ -360,6 +361,7 @@ export default {
       })
 
       this.groupProducts = selectedProduct
+      console.log(this.groupProducts)
     },
     getCategories() {
       let filterForCategories = []
