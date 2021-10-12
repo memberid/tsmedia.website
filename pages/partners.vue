@@ -125,7 +125,7 @@
                     <a :href="item.link" target="_blank">
                       <img
                         class="partners__logo object-contain"
-                        :src="getAssetsURL('/channels/', item.name, 'logo.png')"
+                        :src="getAssetsURL('/channels/', item.name, 'logo.svg')"
                         alt=""
                       />
                       <div class="partners__title">{{ item.title }}</div>
