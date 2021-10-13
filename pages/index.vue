@@ -175,14 +175,6 @@ export default {
         description:
           'In this baking show, our sexy next door momma, Patricia Panigoro, will share her secret recipes inspired from her travels around the world.',
       },
-      // {
-      //   title: 'Pointsgeek',
-      //   to: 'pointsgeek',
-      //   type: 'channels',
-      //   href: 'https://instagram.com/pointsgeek_id?utm_medium=copy_link',
-      //   description:
-      //     'Your source for travel-hacking, points-hacking, hot deals, tips & tricks, review and recommendation place.',
-      // },
       {
         title: 'Lipstick Golfers',
         to: 'lipstick-golfers',
@@ -196,6 +188,14 @@ export default {
         type: 'channels',
         href: 'https://instagram.com/lipstickriders?utm_medium=copy_link',
         description: `Cycling Community - We're not your average female cyclist`,
+      },
+      {
+        title: 'Pointsgeek',
+        to: 'pointsgeek',
+        type: 'channels',
+        href: 'https://pointsgeek.id/',
+        description:
+          'Your source for travel-hacking, points-hacking, hot deals, tips & tricks, review and recommendation place.',
       },
     ],
     navCarousel: 0,
