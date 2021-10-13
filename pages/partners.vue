@@ -30,9 +30,9 @@
                 </div>
               </div>
               <p class="partners__content-description">
-                Meet our partner channels from a different industry, Points
-                Geek, Lipstick Riders & Lipstick Golfers. And we are open for
-                any partnership and collaboration
+                Meet our clients and partners from a variety of industries,
+                Points Geek, Lipstick Riders & Lipstick Golfers. And we are open
+                for any partnership and collaboration
               </p>
             </div>
             <div class="partners__wrapper">
@@ -125,7 +125,7 @@
                     <a :href="item.link" target="_blank">
                       <img
                         class="partners__logo object-contain"
-                        :src="getAssetsURL('/channels/', item.name, 'logo.png')"
+                        :src="getAssetsURL('/channels/', item.name, 'logo.svg')"
                         alt=""
                       />
                       <div class="partners__title">{{ item.title }}</div>

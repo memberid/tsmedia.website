@@ -1,0 +1,15 @@
+.sidebar {
+  @apply fixed left-0 top-96 z-20;
+
+  &__socmed {
+    @apply flex items-center justify-center flex-col pb-2 px-1 md:px-4 text-white;
+
+    @screen sm {
+      @apply pb-0;
+    }
+
+    &-item {
+      @apply cursor-pointer text-lg md:text-2xl;
+    }
+  }
+}
