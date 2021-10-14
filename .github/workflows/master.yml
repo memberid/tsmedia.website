@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '15'
 
-      - run: npm install yarn
+      - run: npm install yarn -g
       - run: yarn install
       - run: yarn run build
 
@@ -32,6 +32,17 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.PROD_PRIV_KEY }}
           ARGS: "-rltgoDzvO"
           SOURCE: "./*"
+          REMOTE_HOST: ${{ secrets.PROD_HOST }}
+          REMOTE_PORT: ${{ secrets.PROD_PORT }}
+          REMOTE_USER: ${{ secrets.PROD_SSH_USER }}
+          TARGET: ${{ secrets.PROD_DIR_TARGET }}
+
+      - name: Deploy env to Prod server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PROD_PRIV_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: ".env.production"
           REMOTE_HOST: ${{ secrets.PROD_HOST }}
           REMOTE_PORT: ${{ secrets.PROD_PORT }}
           REMOTE_USER: ${{ secrets.PROD_SSH_USER }}
