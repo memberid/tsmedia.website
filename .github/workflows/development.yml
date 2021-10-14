@@ -1,0 +1,67 @@
+name: DEVELOPMENT Deployment
+on: 
+  push:
+    branches:
+      - develop
+
+jobs:
+  develop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+
+      - run: npm install yarn -g
+      - run: yarn install
+      - run: yarn run build
+      
+# DEV_HOST = 167.99.65.131
+# DEV_PORT = 5858
+# DEV_SSH_USER = ramperto
+# DEV_PRIV_KEY = MIIEpAIBAAKCAQEAvJCAGqLpPCIg+
+# REFRESH_CODE_DEV = cd /home/ramperto/dev.tsmedia
+# DEV_DIR_TARGET = /home/ramperto/dev.tsmedia/
+
+
+      - name: refresh repository
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          port: ${{ secrets.DEV_PORT }}
+          username: ${{ secrets.DEV_SSH_USER }}
+          key: ${{ secrets.DEV_PRIV_KEY }}
+          script: ${{ secrets.REFRESH_CODE_DEV }}
+
+      - name: Deploy to Dev server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEV_PRIV_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "./*"
+          REMOTE_HOST: ${{ secrets.DEV_HOST }}
+          REMOTE_PORT: ${{ secrets.DEV_PORT }}
+          REMOTE_USER: ${{ secrets.DEV_SSH_USER }}
+          TARGET: ${{ secrets.DEV_DIR_TARGET }}
+
+      - name: Deploy env to Dev server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEV_PRIV_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: ".env.production"
+          REMOTE_HOST: ${{ secrets.DEV_HOST }}
+          REMOTE_PORT: ${{ secrets.DEV_PORT }}
+          REMOTE_USER: ${{ secrets.DEV_SSH_USER }}
+          TARGET: ${{ secrets.DEV_DIR_TARGET }}
+
+      - name: update ownership
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.DEV_SSH_USER }}
+          port: ${{ secrets.DEV_PORT }}
+          key: ${{ secrets.DEV_PRIV_KEY }}
+          script: sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
+
