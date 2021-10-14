@@ -63,5 +63,5 @@ jobs:
           username: ${{ secrets.DEV_SSH_USER }}
           # port: ${{ secrets.TEST_PORT }}
           key: ${{ secrets.DEV_PRIV_KEY }}
-          script: sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
+          script: sudo chown -R ramperto:www-data dist
 
