@@ -136,7 +136,7 @@
                     </span>
                   </template>
                   <template #img>
-                    <img :src="items['URL_IMAGE']" alt="" />
+                    <img :src="handleImageProduct(items['URL_IMAGE'])" alt="" />
                   </template>
                   <template #text>
                     <div class="card__item-content space-y-1.5">
@@ -441,6 +441,13 @@ export default {
           loading.close()
           return (this.filterProducts = filter)
         }, 500)
+      }
+    },
+    handleImageProduct(data) {
+      if (data.includes(',')) {
+        return data.split(', ')[0]
+      } else {
+        return data
       }
     },
     goToDetail(to) {

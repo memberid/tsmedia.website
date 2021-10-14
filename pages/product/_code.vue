@@ -276,15 +276,77 @@ export default {
         'PRODUCT_COLOR'
       )
 
-      const selectImages = _.map(dataList, (item) => {
-        return {
-          src:
-            'https://drive.google.com/uc?export=view&id=' +
-            item.ID_IMAGE_GDRIVE,
-          thumbnail: item.URL_IMAGE,
-          id: item['NO.'],
+      console.log(dataList)
+
+      if (
+        _.find(dataList, function (o) {
+          return o.URL_IMAGE.includes(', ')
+        })
+      ) {
+        if (
+          _.find(dataList, function (o) {
+            return !o.URL_IMAGE.includes(', ')
+          })
+        ) {
+          console.log('Multiple Images')
+          let splitImages = _.filter(dataList, function (o) {
+            return o.URL_IMAGE.includes(', ')
+          })[0]
+          splitImages = splitImages.URL_IMAGE.split(', ')
+
+          let otherImage = _.filter(dataList, function (o) {
+            return !o.URL_IMAGE.includes(', ')
+          })
+          otherImage = _.map(otherImage, (item) => {
+            return item.URL_IMAGE
+          })
+
+          this.galleryItems = [...splitImages, ...otherImage]
+
+          this.galleryItems = _.map(this.galleryItems, (item, index) => {
+            return {
+              src: item,
+              thumbnail: item,
+              id: index + 1,
+            }
+          })
+          console.log(this.galleryItems)
+        } else {
+          let splitImages = _.filter(dataList, function (o) {
+            return o.URL_IMAGE.includes(', ')
+          })[0]
+          splitImages = splitImages.URL_IMAGE.split(', ')
+
+          this.galleryItems = _.map(splitImages, (item, index) => {
+            return {
+              src: item,
+              thumbnail: item,
+              id: index + 1,
+            }
+          })
         }
-      })
+      } else {
+        this.galleryItems = _.map(dataList, (item) => {
+          return {
+            src:
+              'https://drive.google.com/uc?export=view&id=' +
+              item.ID_IMAGE_GDRIVE1,
+            thumbnail: item.URL_IMAGE,
+            id: item['NO.'],
+          }
+        })
+      }
+
+      // const selectImages = _.map(dataList, (item) => {
+
+      //     return {
+      //         src:
+      //           'https://drive.google.com/uc?export=view&id=' +
+      //           item.ID_IMAGE_GDRIVE1,
+      //         thumbnail: item.URL_IMAGE,
+      //         id: item['NO.'],
+      //       }
+      //   })
 
       this.activeColor = this.selectedProduct.customParams.color[0].name
 
@@ -294,7 +356,7 @@ export default {
       ])[0]
 
       this.variantSize.size = this.variantSize.size.sort().reverse()
-      this.galleryItems = selectImages
+      // this.galleryItems = selectImages
       this.isOpen = true
     },
     handleSelectColor(name) {
