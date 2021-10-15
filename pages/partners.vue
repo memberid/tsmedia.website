@@ -140,20 +140,15 @@
           <div class="analytics__headline">Our Key Values</div>
           <div class="analytics__list">
             <div class="analytics__item">
-              <div class="analytics__value">95M +</div>
-              <div class="analytics__title">Impressions</div>
+              <div class="analytics__value">100M +</div>
+              <div class="analytics__title">Avg Monthly Impression</div>
             </div>
             <div class="analytics__item">
-              <div class="analytics__value">5.1M +</div>
-              <div class="analytics__title">Views</div>
+              <div class="analytics__value">40M +</div>
+              <div class="analytics__title">Avg Monthly Reach</div>
             </div>
             <div class="analytics__item">
-              <div class="analytics__value">4.5M +</div>
-              <div class="analytics__title">Reach</div>
-            </div>
-
-            <div class="analytics__item">
-              <div class="analytics__value">23 +</div>
+              <div class="analytics__value">30 +</div>
               <div class="analytics__title">Brand Collaboration</div>
             </div>
           </div>
