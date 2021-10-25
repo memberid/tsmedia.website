@@ -4,7 +4,18 @@
     <div class="main__contact">
       <div class="main__contact-wrapper">
         <div class="contact">
-          <div class="contact__info">
+          <div
+            v-gsap.fromTo="[
+              { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'Power2.easeInOut',
+              },
+            ]"
+            class="contact__info"
+          >
             <div class="contact__headline">
               <span class="text-2xl lg:text-5xl font-bold">
                 Get in touch and let us know how we can help
@@ -41,6 +52,16 @@
           </div>
           <FormulateForm
             v-model="formValues"
+            v-gsap.fromTo="[
+              { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: 0.5,
+                ease: 'Power2.easeInOut',
+              },
+            ]"
             class="contact__form"
             name="tsmedia-contact-form"
             @submit="handleSubmit()"
