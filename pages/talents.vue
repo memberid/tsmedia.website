@@ -8,9 +8,23 @@
           :per-touch="1"
           :breakpoints="settingCarousel.breakpoints"
           type="slider"
+          bound
           @glide:swipe-move="handleControlCarousel"
         >
-          <vue-glide-slide v-for="(item, i) in profiles" :key="i">
+          <vue-glide-slide
+            v-for="(item, i) in profiles"
+            :key="i"
+            v-gsap.fromTo="[
+              { opacity: 0, y: 100, ease: 'Power2.easeInOut' },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: i * 0.3,
+                ease: 'Power2.easeInOut',
+              },
+            ]"
+          >
             <vs-card type="5" class="card__overview m-4">
               <template #title>
                 <!-- <span class="text-xl lg:text-2xl font-semibold">
