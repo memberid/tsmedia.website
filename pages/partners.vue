@@ -77,14 +77,36 @@
               </vue-glide> -->
               <template v-if="selectCategory === 'Brands'">
                 <vue-glide
-                  v-model="brandsCarousel"
+                  v-gsap.fromTo="[
+                    { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+                    {
+                      opacity: 1,
+                      y: 0,
+                      duration: 0.75,
+                      ease: 'Power2.easeInOut',
+                    },
+                  ]"
                   :keyboard="false"
                   :drag-threshold="false"
                   :per-touch="1"
                   :breakpoints="settingCarousel.breakpoints"
                   type="slider"
+                  bound
                 >
-                  <vue-glide-slide v-for="(item, i) in brands" :key="i">
+                  <vue-glide-slide
+                    v-for="(item, i) in brands"
+                    :key="i"
+                    v-gsap.fromTo="[
+                      { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+                      {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        delay: i * 0.3,
+                        ease: 'Power2.easeInOut',
+                      },
+                    ]"
+                  >
                     <div class="partners__item">
                       <img
                         class="partners__logo object-contain"
@@ -120,6 +142,16 @@
                   <div
                     v-for="(item, idx) in channels"
                     :key="idx"
+                    v-gsap.fromTo="[
+                      { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+                      {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        delay: idx * 0.3,
+                        ease: 'Power2.easeInOut',
+                      },
+                    ]"
                     class="partners__item"
                   >
                     <a :href="item.link" target="_blank">
@@ -283,6 +315,42 @@ export default {
       },
     },
   }),
+  mounted() {
+    this.$gsap.fromTo(
+      '.partners__content',
+      { opacity: 0, x: 50, ease: 'Power2.easeInOut' },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.75,
+        ease: 'Power2.easeInOut',
+      }
+    )
+
+    this.$gsap.fromTo(
+      '.analytics__headline',
+      { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        delay: 0.25,
+        ease: 'Power2.easeInOut',
+      }
+    )
+
+    this.$gsap.fromTo(
+      '.analytics__item',
+      { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        delay: 0.5,
+        ease: 'Power2.easeInOut',
+      }
+    )
+  },
   methods: {
     handleControlCarousel(event) {
       if (event === 'next') {
