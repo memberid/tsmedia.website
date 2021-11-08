@@ -62,7 +62,12 @@ export default {
     '@braid/vue-formulate/nuxt',
     '@nuxtjs/google-analytics',
   ],
-
+  gsap: {
+    extraPlugins: {
+      scrollTo: true,
+      scrollTrigger: true,
+    },
+  },
   pageTransition: {
     name: 'page',
     mode: 'out-in',
