@@ -45,7 +45,18 @@
   </div>
 </vuescroll> -->
       <div v-dragscroll.x class="program-wrapper">
-        <div class="program__content">
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, x: 50, ease: 'Power2.easeInOut' },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              ease: 'Power2.easeInOut',
+            },
+          ]"
+          class="program__content"
+        >
           <div class="program__logo">
             <img :src="getAssetsURL(selectProgram.to, 'logo.svg')" alt="" />
           </div>
@@ -66,7 +77,19 @@
               <font-awesome-icon icon="['fab', 'arrow-right']" />
             </div> -->
         </div>
-        <div class="program__backdrop">
+        <div
+          v-gsap.fromTo="[
+            { opacity: 0, y: 20, ease: 'Power2.easeInOut' },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              delay: 0.5,
+              ease: 'Power2.easeInOut',
+            },
+          ]"
+          class="program__backdrop"
+        >
           <img
             class="object-contain"
             :src="getAssetsURL(selectProgram.to, 'talents_backdrop.png')"
@@ -78,7 +101,7 @@
             v-for="(item, idx) in selectProgram.assets"
             :key="idx"
             class="program__assets mx-12 lg:mx-20"
-            :class="item.placement"
+            :class="`program__assets-${idx} ${item.placement}`"
           >
             <div
               class="program__assets-image"
@@ -261,10 +284,26 @@ export default {
       {
         title: 'Dates with JuNa',
         to: 'dates-with-juna',
-        link: `https://www.youtube.com/channel/UCxmrFvg9g2jdErW587nm7-g/videos`,
+        link: `https://www.youtube.com/playlist?list=PL9GuwZR5c2VJpg4lnVaOy9f3XOEXXQbir`,
         description:
           'Dates with a romantic dating talk-show that talks about relationships, current trends and culture with different hosts in every season.',
-        assets: [],
+        assets: [
+          {
+            filename: 'program_image-1.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+          {
+            filename: 'program_gif-1.gif',
+            styleClass: 'shadow',
+            placement: 'top',
+          },
+          {
+            filename: 'program_image-2.png?tr=h-419,w-993',
+            styleClass: 'shadow',
+            placement: 'center',
+          },
+        ],
       },
       {
         title: 'HOKI',
@@ -462,7 +501,21 @@ export default {
       return select[0]
     },
   },
-  mounted() {},
+  mounted() {
+    // this.$gsap.to('.program__assets-0', {
+    //   y: 100,
+    //   ease: 'Power2.easeInOut',
+    //   scrollTrigger: {
+    //     scroller: '.program-wrapper',
+    //     trigger: '.program__assets-0',
+    //     invalidateOnRefresh: true,
+    //     start: 'top center',
+    //     end: 'center top',
+    //     scrub: true,
+    //     markers: true,
+    //   },
+    // })
+  },
   methods: {
     getAssetsURL(program, filename) {
       const data =
