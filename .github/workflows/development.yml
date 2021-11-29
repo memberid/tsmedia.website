@@ -15,7 +15,7 @@ jobs:
 
       - run: npm install yarn -g
       - run: yarn install
-      - run: yarn run build
+      - run: yarn run build:development
       
 # DEV_HOST = 167.99.65.131
 # DEV_PORT = 5858
