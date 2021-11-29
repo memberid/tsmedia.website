@@ -18,26 +18,28 @@
           >
             <div class="contact__headline">
               <span class="text-2xl lg:text-5xl font-bold">
-                Get in touch and let us know how we can help
+                {{ contacts.title }}
               </span>
             </div>
             <div class="contact__info-list">
               <div class="contact__info-item">
                 <span>Location</span>
                 <p class="font-semibold text-lg">
-                  Kota Jakarta Selatan,
-                  <br />
-                  Daerah Khusus Ibukota Jakarta 12430
+                  {{ contacts.location }}
                 </p>
               </div>
               <div class="contact__info-item">
                 <span>Email</span>
-                <p class="font-semibold text-lg">info@tsmedia.id</p>
+                <p class="font-semibold text-lg">
+                  {{ contacts.email }}
+                </p>
               </div>
               <div class="contact__info-item">
                 <span>Mobile Phone</span>
                 <div class="flex items-center gap-2">
-                  <p class="font-semibold text-lg">+62 812 9862 6560</p>
+                  <p class="font-semibold text-lg">
+                    {{ contacts.mobilePhone }}
+                  </p>
                   <vs-button
                     icon
                     color="whatsapp"
@@ -114,6 +116,15 @@
 </template>
 <script>
 export default {
+  async asyncData({ $axios, $config }) {
+    const contacts = await $axios
+      .$get(`${$config.baseURL}/contact-us`)
+      .then((res) => res)
+
+    console.log(contacts)
+
+    return { contacts }
+  },
   data: () => ({
     formValues: {
       name: '',
