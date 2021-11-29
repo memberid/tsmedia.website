@@ -1,4 +1,5 @@
 import webpack from 'webpack'
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -39,6 +40,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/axios',
     '@/plugins/vuesax',
     // '@/plugins/three',
     '@/plugins/glide',
@@ -101,14 +103,25 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename: `.env.${process.env.NODE_ENV}`,
+        systemvars: true,
+      },
+    ],
   ],
   axios: {
-    proxy: true, // Can be also an object with default options
+    baseURL: process.env.BASE_URL,
+    baseTOKEN: process.env.BASE_TOKEN,
+    assetURL: process.env.IMAGE_URL,
+    proxyHeaders: false,
+    credentials: false,
   },
-
   publicRuntimeConfig: {
-    baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
-    assetURL: 'https://ik.imagekit.io/tsmedia/static/assets',
+    baseURL: process.env.BASE_URL,
+    baseTOKEN: process.env.BASE_TOKEN,
+    assetURL: process.env.IMAGE_URL,
   },
   googleAnalytics: {
     id: 'UA-209050522-1',
