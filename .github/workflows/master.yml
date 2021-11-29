@@ -55,4 +55,6 @@ jobs:
           username: ${{ secrets.PROD_SSH_USER }}
           port: ${{ secrets.PROD_PORT }}
           key: ${{ secrets.PROD_PRIV_KEY }}
-          script: sudo chown -R www-data:www-data ${{ secrets.PROD_DIR_TARGET }}
+          script: |
+            sudo chown -R www-data:www-data ${{ secrets.PROD_DIR_TARGET }}
+            pm2 restart tsmedia-client

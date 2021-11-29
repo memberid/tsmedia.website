@@ -50,7 +50,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEV_PRIV_KEY }}
           ARGS: "-rltgoDzvO"
-          SOURCE: ".env.production"
+          SOURCE: ".env.development"
           REMOTE_HOST: ${{ secrets.DEV_HOST }}
           REMOTE_PORT: ${{ secrets.DEV_PORT }}
           REMOTE_USER: ${{ secrets.DEV_SSH_USER }}
@@ -63,5 +63,7 @@ jobs:
           username: ${{ secrets.DEV_SSH_USER }}
           port: ${{ secrets.DEV_PORT }}
           key: ${{ secrets.DEV_PRIV_KEY }}
-          script: sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
+          script: |
+            sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
+            pm2 restart devtsmedia-client
 
