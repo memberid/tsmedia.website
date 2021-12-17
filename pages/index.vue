@@ -8,13 +8,7 @@
               { opacity: 0, y: 50, ease: 'Power1.easeInOut' },
               { opacity: 1, y: 0, duration: 0.5, ease: 'Power1.easeInOut' },
             ]"
-            :src="
-              getAssetsURL(
-                programs[navCarousel].type,
-                programs[navCarousel].to,
-                'logo.svg'
-              )
-            "
+            :src="programs[navCarousel].logo.url"
             alt=""
           />
         </div>
@@ -40,16 +34,22 @@
             class="font-bold"
             size="large"
             :to="
-              programs[navCarousel].type === 'programs'
-                ? '/program/' + programs[navCarousel].to
+              programs[navCarousel].type === 'Programs'
+                ? {
+                    name: 'program-id-name',
+                    params: {
+                      name: programs[navCarousel].to,
+                      id: programs[navCarousel].id,
+                    },
+                  }
                 : false
             "
             :href="
-              programs[navCarousel].type === 'channels'
+              programs[navCarousel].type === 'Channels'
                 ? programs[navCarousel].href
                 : false
             "
-            :blank="programs[navCarousel].type === 'channels' ? true : false"
+            :blank="programs[navCarousel].type === 'Channels' ? true : false"
             :active="active == 0"
             @click="active = 0"
           >
@@ -69,9 +69,7 @@
           <vue-glide-slide v-for="(item, i) in programs" :key="i">
             <div class="slide one">
               <div class="slider-image">
-                <img
-                  :src="getAssetsURL(item.type, item.to, 'program_cover.png')"
-                />
+                <img :src="item.cover.url" />
               </div>
             </div>
           </vue-glide-slide>
@@ -108,6 +106,15 @@
 
 <script>
 export default {
+  async asyncData({ $axios, $config }) {
+    const programs = await $axios
+      .$get(`${$config.baseURL}/programs`)
+      .then((res) => res)
+
+    console.log(programs)
+
+    return { programs }
+  },
   data: () => ({
     programs: [
       {
@@ -229,9 +236,7 @@ export default {
         return item.to
       })
       filter.forEach((item) => {
-        data.push(
-          this.getAssetsURL(item.type, item.to, 'program_background.png')
-        )
+        data.push(item.background.url)
       })
       console.log(data)
       return data
