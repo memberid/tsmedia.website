@@ -196,7 +196,7 @@
 export default {
   async asyncData({ $axios, $config }) {
     const partners = await $axios
-      .$get(`${$config.baseURL}/our-key-values`)
+      .$get(`${$config.baseURL}/partners`)
       .then((res) => res)
 
     console.log(partners)
