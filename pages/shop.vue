@@ -10,13 +10,15 @@
             type="slider"
             :autoplay="5000"
           >
-            <vue-glide-slide v-for="(item, idx) in banners" :key="idx">
+            <vue-glide-slide v-for="(item, idx) in banners.shop" :key="idx">
               <div class="banner">
                 <div class="banner__image">
-                  <img
-                    class="h-full w-full object-left object-cover"
-                    :src="item.bannerImg"
-                  />
+                  <a :href="item.link" target="_blank">
+                    <img
+                      class="h-full w-full object-left object-cover"
+                      :src="item.image.url"
+                    />
+                  </a>
                 </div>
               </div>
             </vue-glide-slide>
@@ -210,15 +212,15 @@
 <script>
 import _ from 'lodash'
 export default {
-  // async asyncData({ $axios, $config }) {
-  //   console.log($axios)
-  //   const products = await $axios.$get({
-  //     url: `/echo?user_content_key=nJxbrdt8hSERJsXNBbbz8aH2fquNg6XO75HMdNoViVWqS9xR490RU_fsao3vIKxAK5Pj95-p3PPoubDA2tTEdFpP-LQlyTDRm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP97jtFBm-0EKPxqrNC6DUfGTEoryZouciQuuB4W2pMHv28ULjR7BNEtCiI3CgbWtiZwhnCljdc4321z6NyWgk-DE0aHLwtkyQRbUtyGWuEWu9-D7D0td02GpX6tX3KFDfw&lib=M0dC36olIKwE3bfCG1qekVJ3lhmj3OVbj`,
-  //     baseURL: 'https://script.googleusercontent.com/a/macros/tsmedia.id',
-  //   })
-  //   console.log(products)
-  //   return { products }
-  // },
+  async asyncData({ $axios, $config }) {
+    const banners = await $axios
+      .$get(`${$config.baseURL}/banners`)
+      .then((res) => res)
+
+    console.log(banners)
+
+    return { banners }
+  },
   data: () => ({
     banners: [
       {
