@@ -1,5 +1,5 @@
 name: DEVELOPMENT Deployment
-on: 
+on:
   push:
     branches:
       - develop
@@ -16,14 +16,13 @@ jobs:
       - run: npm install yarn -g
       - run: yarn install
       - run: yarn run build:development
-      
-# DEV_HOST = 167.99.65.131
-# DEV_PORT = 5858
-# DEV_SSH_USER = ramperto
-# DEV_PRIV_KEY = MIIEpAIBAAKCAQEAvJCAGqLpPCIg+
-# REFRESH_CODE_DEV = cd /home/ramperto/dev.tsmedia
-# DEV_DIR_TARGET = /home/ramperto/dev.tsmedia/
 
+      # DEV_HOST = 167.99.65.131
+      # DEV_PORT = 5858
+      # DEV_SSH_USER = ramperto
+      # DEV_PRIV_KEY = MIIEpAIBAAKCAQEAvJCAGqLpPCIg+
+      # REFRESH_CODE_DEV = cd /home/ramperto/dev.tsmedia
+      # DEV_DIR_TARGET = /home/ramperto/dev.tsmedia/
 
       - name: refresh repository
         uses: appleboy/ssh-action@master
@@ -38,8 +37,8 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEV_PRIV_KEY }}
-          ARGS: "-rltgoDzvO"
-          SOURCE: "./*"
+          ARGS: '-rltgoDzvO'
+          SOURCE: './*'
           REMOTE_HOST: ${{ secrets.DEV_HOST }}
           REMOTE_PORT: ${{ secrets.DEV_PORT }}
           REMOTE_USER: ${{ secrets.DEV_SSH_USER }}
@@ -49,8 +48,8 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEV_PRIV_KEY }}
-          ARGS: "-rltgoDzvO"
-          SOURCE: ".env.development"
+          ARGS: '-rltgoDzvO'
+          SOURCE: '.env.development'
           REMOTE_HOST: ${{ secrets.DEV_HOST }}
           REMOTE_PORT: ${{ secrets.DEV_PORT }}
           REMOTE_USER: ${{ secrets.DEV_SSH_USER }}
@@ -66,4 +65,3 @@ jobs:
           script: |
             sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
             pm2 restart devtsmedia-client
-
