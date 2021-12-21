@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
+require('dotenv').config({ path: `.env.${process.env.ENV}` })
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -63,6 +63,13 @@ export default {
     'nuxt-gsap-module',
     '@braid/vue-formulate/nuxt',
     '@nuxtjs/google-analytics',
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename: `.env.${process.env.ENV}`,
+        systemvars: true,
+      },
+    ],
   ],
   gsap: {
     extraPlugins: {
@@ -103,13 +110,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    [
-      '@nuxtjs/dotenv',
-      {
-        filename: `.env.${process.env.NODE_ENV}`,
-        systemvars: true,
-      },
-    ],
+    '@nuxtjs/dotenv',
   ],
   axios: {
     baseURL: process.env.BASE_URL,
