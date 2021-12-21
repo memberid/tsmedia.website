@@ -15,7 +15,7 @@ jobs:
 
       - run: npm install yarn -g
       - run: yarn install
-      - run: yarn run build:production
+      - run: NODE_ENV=production && yarn run build:production
 
       - name: refresh repository
         uses: appleboy/ssh-action@master
@@ -57,4 +57,3 @@ jobs:
           key: ${{ secrets.PROD_PRIV_KEY }}
           script: |
             sudo chown -R www-data:www-data ${{ secrets.PROD_DIR_TARGET }}
-            NODE_ENV=production pm2 restart tsmedia-client
