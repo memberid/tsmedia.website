@@ -5,6 +5,7 @@
       :image-urls="imageUrls"
       :distortion-texture-url="require(`~/assets/img/carousel/15.jpg`)"
       :max-width="1920"
+      :ratio="{ width: 16, height: 9 }"
       :move-threshold="0.2"
       :duration-sec="2.5"
     />

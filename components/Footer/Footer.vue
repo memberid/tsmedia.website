@@ -16,32 +16,48 @@
 <script>
 export default {
   data: () => ({
-    socmeds: [
-      {
-        icon: 'youtube',
-        link: 'https://www.youtube.com/channel/UCxmrFvg9g2jdErW587nm7-g',
-      },
-      {
-        icon: 'instagram',
-        link: 'https://www.instagram.com/travelsecrets.id/',
-      },
-      {
-        icon: 'tiktok',
-        link: 'https://www.tiktok.com/@travelsecretsid?lang=en',
-      },
-      {
-        icon: 'facebook',
-        link: 'https://web.facebook.com/travelsecretsid',
-      },
-      {
-        icon: 'twitter',
-        link: 'https://twitter.com/travelsecretsid',
-      },
-    ],
+    socmeds: [],
+    // socmeds: [
+    //   {
+    //     icon: 'youtube',
+    //     link: 'https://www.youtube.com/channel/UCxmrFvg9g2jdErW587nm7-g',
+    //   },
+    //   {
+    //     icon: 'instagram',
+    //     link: 'https://www.instagram.com/travelsecrets.id/',
+    //   },
+    //   {
+    //     icon: 'tiktok',
+    //     link: 'https://www.tiktok.com/@travelsecretsid?lang=en',
+    //   },
+    //   {
+    //     icon: 'facebook',
+    //     link: 'https://web.facebook.com/travelsecretsid',
+    //   },
+    //   {
+    //     icon: 'twitter',
+    //     link: 'https://twitter.com/travelsecretsid',
+    //   },
+    // ],
   }),
+  async created() {
+    await this.getData()
+  },
   methods: {
     goTo(name) {
       window.open(name, '_blank')
+    },
+    async getData() {
+      this.loading = true
+      try {
+        const responseBody = await this.$axios
+          .$get(`${this.$config.baseURL}/social-media`)
+          .then((res) => res)
+
+        this.socmeds = responseBody.socialMedia
+      } finally {
+        this.loading = false
+      }
     },
   },
 }

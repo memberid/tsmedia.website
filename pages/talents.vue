@@ -12,7 +12,7 @@
           @glide:swipe-move="handleControlCarousel"
         >
           <vue-glide-slide
-            v-for="(item, i) in profiles"
+            v-for="(item, i) in talents"
             :key="i"
             v-gsap.fromTo="[
               { opacity: 0, y: 100, ease: 'Power2.easeInOut' },
@@ -32,11 +32,7 @@
                 </span> -->
               </template>
               <template #img>
-                <img
-                  class="w-full h-full"
-                  :src="getAssetsURL(item.image)"
-                  alt=""
-                />
+                <img class="w-full h-full" :src="item.image.url" alt="" />
               </template>
               <template #text>
                 <div
@@ -93,6 +89,15 @@
 </template>
 <script>
 export default {
+  async asyncData({ $axios, $config }) {
+    const talents = await $axios
+      .$get(`${$config.baseURL}/talents`)
+      .then((res) => res)
+
+    console.log(talents)
+
+    return { talents }
+  },
   data: () => ({
     profiles: [
       {

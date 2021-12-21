@@ -30,9 +30,7 @@
                 </div>
               </div>
               <p class="partners__content-description">
-                Meet our clients and partners from a variety of industries,
-                Points Geek, Lipstick Riders & Lipstick Golfers. And we are open
-                for any partnership and collaboration
+                {{ partners.description }}
               </p>
             </div>
             <div class="partners__wrapper">
@@ -94,7 +92,7 @@
                   bound
                 >
                   <vue-glide-slide
-                    v-for="(item, i) in brands"
+                    v-for="(item, i) in partners.brands"
                     :key="i"
                     v-gsap.fromTo="[
                       { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
@@ -110,7 +108,7 @@
                     <div class="partners__item">
                       <img
                         class="partners__logo object-contain"
-                        :src="getAssetsURL('/', 'brands', `${item.name}.png`)"
+                        :src="item.logo.url"
                         alt=""
                       />
                     </div>
@@ -140,7 +138,7 @@
               <template v-else-if="selectCategory === 'Channels'">
                 <div class="partners__list">
                   <div
-                    v-for="(item, idx) in channels"
+                    v-for="(item, idx) in partners.channels"
                     :key="idx"
                     v-gsap.fromTo="[
                       { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
@@ -157,10 +155,10 @@
                     <a :href="item.link" target="_blank">
                       <img
                         class="partners__logo object-contain"
-                        :src="getAssetsURL('/channels/', item.name, 'logo.svg')"
+                        :src="item.logo[0].url"
                         alt=""
                       />
-                      <div class="partners__title">{{ item.title }}</div>
+                      <div class="partners__title">{{ item.name }}</div>
                     </a>
                   </div>
                 </div>
@@ -171,17 +169,13 @@
         <div class="analytics">
           <div class="analytics__headline">Our Key Values</div>
           <div class="analytics__list">
-            <div class="analytics__item">
-              <div class="analytics__value">100M +</div>
-              <div class="analytics__title">Avg Monthly Impression</div>
-            </div>
-            <div class="analytics__item">
-              <div class="analytics__value">40M +</div>
-              <div class="analytics__title">Avg Monthly Reach</div>
-            </div>
-            <div class="analytics__item">
-              <div class="analytics__value">30 +</div>
-              <div class="analytics__title">Brand Collaboration</div>
+            <div
+              v-for="(item, idx) in partners.ourKeyValues"
+              :key="idx"
+              class="analytics__item"
+            >
+              <div class="analytics__value">{{ item.value }}</div>
+              <div class="analytics__title">{{ item.title }}</div>
             </div>
           </div>
         </div>
@@ -200,96 +194,105 @@
 </template>
 <script>
 export default {
+  async asyncData({ $axios, $config }) {
+    const partners = await $axios
+      .$get(`${$config.baseURL}/partners`)
+      .then((res) => res)
+
+    console.log(partners)
+
+    return { partners }
+  },
   data: () => ({
     selectCategory: 'Brands',
-    channels: [
-      {
-        name: `pointsgeek`,
-        title: `Loyalty & Travel Website`,
-        link: `https://pointsgeek.id/`,
-      },
-      {
-        name: `lipstick-golfers`,
-        title: `Golf Community`,
-        link: `https://www.instagram.com/lipstickgolfers/`,
-      },
-      {
-        name: `lipstick-riders`,
-        title: `Cycling Community`,
-        link: `https://www.instagram.com/lipstickriders/`,
-      },
-    ],
-    brands: [
-      {
-        name: `attaquer`,
-      },
-      {
-        name: `bni`,
-      },
-      {
-        name: `bri`,
-      },
-      {
-        name: `bulgari`,
-      },
-      {
-        name: `cervelo`,
-      },
-      {
-        name: `fitbar`,
-      },
-      {
-        name: `four-seasons`,
-      },
-      {
-        name: `garuda-indonesia`,
-      },
-      {
-        name: `link-aja`,
-      },
-      {
-        name: `magnum`,
-      },
-      {
-        name: `mercedes-benz`,
-      },
-      {
-        name: `nirjhara`,
-      },
-      {
-        name: `plataran`,
-      },
-      {
-        name: `telkomsel-halo`,
-      },
-      {
-        name: `tentrem`,
-      },
-      {
-        name: `the-legian`,
-      },
-      {
-        name: `traveloka`,
-      },
-      {
-        name: `tripuri`,
-      },
-      {
-        name: `turkish-airlines`,
-      },
-      {
-        name: `uma-canggu`,
-      },
-      {
-        name: `uob`,
-      },
-      {
-        name: `vaya`,
-      },
-      {
-        name: `viceroy`,
-      },
-    ],
+    // channels: [
+    //   {
+    //     name: `pointsgeek`,
+    //     title: `Loyalty & Travel Website`,
+    //     link: `https://pointsgeek.id/`,
+    //   },
+    //   {
+    //     name: `lipstick-golfers`,
+    //     title: `Golf Community`,
+    //     link: `https://www.instagram.com/lipstickgolfers/`,
+    //   },
+    //   {
+    //     name: `lipstick-riders`,
+    //     title: `Cycling Community`,
+    //     link: `https://www.instagram.com/lipstickriders/`,
+    //   },
+    // ],
+    // brands: [
+    //   {
+    //     name: `attaquer`,
+    //   },
+    //   {
+    //     name: `bni`,
+    //   },
+    //   {
+    //     name: `bri`,
+    //   },
+    //   {
+    //     name: `bulgari`,
+    //   },
+    //   {
+    //     name: `cervelo`,
+    //   },
+    //   {
+    //     name: `fitbar`,
+    //   },
+    //   {
+    //     name: `four-seasons`,
+    //   },
+    //   {
+    //     name: `garuda-indonesia`,
+    //   },
+    //   {
+    //     name: `link-aja`,
+    //   },
+    //   {
+    //     name: `magnum`,
+    //   },
+    //   {
+    //     name: `mercedes-benz`,
+    //   },
+    //   {
+    //     name: `nirjhara`,
+    //   },
+    //   {
+    //     name: `plataran`,
+    //   },
+    //   {
+    //     name: `telkomsel-halo`,
+    //   },
+    //   {
+    //     name: `tentrem`,
+    //   },
+    //   {
+    //     name: `the-legian`,
+    //   },
+    //   {
+    //     name: `traveloka`,
+    //   },
+    //   {
+    //     name: `tripuri`,
+    //   },
+    //   {
+    //     name: `turkish-airlines`,
+    //   },
+    //   {
+    //     name: `uma-canggu`,
+    //   },
+    //   {
+    //     name: `uob`,
+    //   },
+    //   {
+    //     name: `vaya`,
+    //   },
+    //   {
+    //     name: `viceroy`,
+    //   },
+    // ],
     channelsCarousel: 0,
     brandsCarousel: 0,
     settingCarousel: {

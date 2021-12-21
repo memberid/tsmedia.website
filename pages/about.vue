@@ -10,19 +10,11 @@
             <p
               class="about__haedline-text pb-4 font-bold text-2xl lg:text-5xl tracking-wider"
             >
-              Created out of our passion for travel and sharing inspiring
-              stories
+              {{ abouts.title }}
             </p>
             <div class="about__description-child block">
               <p class="text-sm lg:text-xl">
-                TS Media was established to inspire, educate and entertain
-                audiences of different segments of travel, culinary, lifestyle,
-                hobbies, sports and finance.
-              </p>
-              <p class="text-sm lg:text-xl">
-                By collaborating with different brands and talents, together we
-                can create quality contents and targeted digital campaigns by
-                focusing on awareness, activation and retention.
+                {{ abouts.description }}
               </p>
             </div>
           </div>
@@ -44,7 +36,7 @@
           </div>
           <div class="about-points__list">
             <div
-              v-for="(item, idx) in whatWeDo"
+              v-for="(item, idx) in abouts.whatWeDo"
               :key="idx"
               v-gsap.fromTo="[
                 { opacity: 0, y: 50, ease: 'Power2.easeInOut' },
@@ -62,7 +54,7 @@
                 {{ item.title }}
               </span>
               <p class="text-sm lg:text-base">
-                {{ item.text }}
+                {{ item.description }}
               </p>
             </div>
           </div>
@@ -82,35 +74,17 @@
 </template>
 <script>
 export default {
+  async asyncData({ $axios, $config }) {
+    const abouts = await $axios
+      .$get(`${$config.baseURL}/about-us`)
+      .then((res) => res)
+
+    console.log(abouts)
+
+    return { abouts }
+  },
   data() {
-    return {
-      whatWeDo: [
-        {
-          title: 'Content Production',
-          text: `Producing high quality contents for any platform from YouTube,
-                Television, OTT, Mobile Streaming and Social Media Contents.`,
-        },
-        {
-          title: 'Creative Services',
-          text: `Through our creative storytelling and using our various digital
-                channels, we help brands create a market and product education
-                to help build audience trust.`,
-        },
-        {
-          title: 'Digital Strategist',
-          text: `Helping brands create brand awareness, brand recall and
-                activation through strategic marketing campaings using our
-                existing platforms and social media networks.`,
-        },
-        {
-          title: 'Talent Management',
-          text: ` Connecting brands to a variety of talents for marketing
-                campaigns executions through production and social media,
-                ensuring all marketing communications are reaching the right
-                audiences and segments.`,
-        },
-      ],
-    }
+    return {}
   },
   mounted() {
     this.$gsap.fromTo(
