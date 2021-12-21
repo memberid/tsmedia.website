@@ -64,4 +64,4 @@ jobs:
           key: ${{ secrets.DEV_PRIV_KEY }}
           script: |
             sudo chown -R ramperto:www-data /home/ramperto/dev.tsmedia
-            pm2 restart devtsmedia-client
+            NODE_ENV=development pm2 restart devtsmedia-client

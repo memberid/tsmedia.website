@@ -57,4 +57,4 @@ jobs:
           key: ${{ secrets.PROD_PRIV_KEY }}
           script: |
             sudo chown -R www-data:www-data ${{ secrets.PROD_DIR_TARGET }}
-            pm2 restart tsmedia-client
+            NODE_ENV=production pm2 restart tsmedia-client
